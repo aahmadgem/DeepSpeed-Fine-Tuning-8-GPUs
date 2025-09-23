@@ -1,0 +1,1723 @@
+[2024-11-12 13:27:22,755] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+  warnings.warn(_BETA_TRANSFORMS_WARNING)
+/global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+  warnings.warn(_BETA_TRANSFORMS_WARNING)
+***************************************************************************
+                          NOTICE TO USERS
+
+Lawrence Berkeley National Laboratory operates this computer system under 
+contract to the U.S. Department of Energy.  This computer system is the 
+property of the United States Government and is for authorized use only.
+Users (authorized or unauthorized) have no explicit or implicit 
+expectation of privacy.
+
+Any or all uses of this system and all files on this system may be
+intercepted, monitored, recorded, copied, audited, inspected, and disclosed
+to authorized site, Department of Energy, and law enforcement personnel,
+as well as authorized officials of other agencies, both domestic and foreign.
+By using this system, the user consents to such interception, monitoring,
+recording, copying, auditing, inspection, and disclosure at the discretion
+of authorized site or Department of Energy personnel.
+
+Unauthorized or improper use of this system may result in administrative
+disciplinary action and civil and criminal penalties. By continuing to use
+this system you indicate your awareness of and consent to these terms and
+conditions of use. LOG OFF IMMEDIATELY if you do not agree to the conditions
+stated in this warning.
+
+*****************************************************************************
+
+Login connection to host x1203c1s7b0n1:
+
+[2024-11-12 13:27:53,275] [INFO] [runner.py:496:main] Using IP address of 10.100.44.93 for node nid003877
+[2024-11-12 13:27:53,282] [INFO] [multinode_runner.py:81:get_cmd] Running on the following workers: nid003877,nid003824
+[2024-11-12 13:27:53,282] [INFO] [runner.py:607:main] cmd = pdsh -S -f 1024 -w nid003877,nid003824 export PYTHONFAULTHANDLER=""; export PYTHONPATH="/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning:/opt/nersc/pymon"; export NCCL_NET_GDR_LEVEL="PHB"; export NCCL_SOCKET_IFNAME="hsn";  cd /pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning; /global/u2/a/aahmad2/DDL/bin/python -u -m deepspeed.launcher.launch --world_info=eyJuaWQwMDM4NzciOiBbMCwgMSwgMiwgM10sICJuaWQwMDM4MjQiOiBbMCwgMSwgMiwgM119 --node_rank=%n --master_addr=10.100.44.93 --master_port=29500 main.py --deepspeed_config ds_config.json --sft_only_data_path Dahoas/rm-static --model_name_or_path /pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B --per_device_train_batch_size 2 --per_device_eval_batch_size 4 --max_seq_len 1024 --learning_rate 9.65e-6 --weight_decay 0.0 --num_train_epochs 1 --gradient_accumulation_steps 1 --lr_scheduler_type cosine --num_warmup_steps 0 --seed 1234 --gradient_checkpointing --zero_stage 3 --deepspeed --lora_dim 0 --lora_module_name layers. --output_dir ./output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636 --print_loss --save_interval 2000 --enable_tensorboard --tensorboard_path ./output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs
+nid003877: ***************************************************************************
+nid003877:                           NOTICE TO USERS
+nid003877: 
+nid003877: Lawrence Berkeley National Laboratory operates this computer system under 
+nid003877: contract to the U.S. Department of Energy.  This computer system is the 
+nid003877: property of the United States Government and is for authorized use only.
+nid003877: Users (authorized or unauthorized) have no explicit or implicit 
+nid003877: expectation of privacy.
+nid003877: 
+nid003877: Any or all uses of this system and all files on this system may be
+nid003877: intercepted, monitored, recorded, copied, audited, inspected, and disclosed
+nid003877: to authorized site, Department of Energy, and law enforcement personnel,
+nid003877: as well as authorized officials of other agencies, both domestic and foreign.
+nid003877: By using this system, the user consents to such interception, monitoring,
+nid003877: recording, copying, auditing, inspection, and disclosure at the discretion
+nid003877: of authorized site or Department of Energy personnel.
+nid003877: 
+nid003877: Unauthorized or improper use of this system may result in administrative
+nid003877: disciplinary action and civil and criminal penalties. By continuing to use
+nid003877: this system you indicate your awareness of and consent to these terms and
+nid003877: conditions of use. LOG OFF IMMEDIATELY if you do not agree to the conditions
+nid003877: stated in this warning.
+nid003877: 
+nid003877: *****************************************************************************
+nid003877: 
+nid003877: Login connection to host x1203c1s7b0n1:
+nid003877: 
+nid003824: ***************************************************************************
+nid003824:                           NOTICE TO USERS
+nid003824: 
+nid003824: Lawrence Berkeley National Laboratory operates this computer system under 
+nid003824: contract to the U.S. Department of Energy.  This computer system is the 
+nid003824: property of the United States Government and is for authorized use only.
+nid003824: Users (authorized or unauthorized) have no explicit or implicit 
+nid003824: expectation of privacy.
+nid003824: 
+nid003824: Any or all uses of this system and all files on this system may be
+nid003824: intercepted, monitored, recorded, copied, audited, inspected, and disclosed
+nid003824: to authorized site, Department of Energy, and law enforcement personnel,
+nid003824: as well as authorized officials of other agencies, both domestic and foreign.
+nid003824: By using this system, the user consents to such interception, monitoring,
+nid003824: recording, copying, auditing, inspection, and disclosure at the discretion
+nid003824: of authorized site or Department of Energy personnel.
+nid003824: 
+nid003824: Unauthorized or improper use of this system may result in administrative
+nid003824: disciplinary action and civil and criminal penalties. By continuing to use
+nid003824: this system you indicate your awareness of and consent to these terms and
+nid003824: conditions of use. LOG OFF IMMEDIATELY if you do not agree to the conditions
+nid003824: stated in this warning.
+nid003824: 
+nid003824: *****************************************************************************
+nid003824: 
+nid003824: Login connection to host x1203c0s2b0n0:
+nid003824: 
+nid003824: [2024-11-12 13:28:04,792] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003877: [2024-11-12 13:28:07,848] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: [2024-11-12 13:28:23,887] [INFO] [launch.py:139:main] 1 NCCL_NET_GDR_LEVEL=PHB
+nid003824: [2024-11-12 13:28:23,888] [INFO] [launch.py:139:main] 1 NCCL_SOCKET_IFNAME=hsn
+nid003824: [2024-11-12 13:28:23,888] [INFO] [launch.py:146:main] WORLD INFO DICT: {'nid003877': [0, 1, 2, 3], 'nid003824': [0, 1, 2, 3]}
+nid003824: [2024-11-12 13:28:23,888] [INFO] [launch.py:152:main] nnodes=2, num_local_procs=4, node_rank=1
+nid003824: [2024-11-12 13:28:23,888] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'nid003877': [0, 1, 2, 3], 'nid003824': [4, 5, 6, 7]})
+nid003824: [2024-11-12 13:28:23,888] [INFO] [launch.py:164:main] dist_world_size=8
+nid003824: [2024-11-12 13:28:23,888] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+nid003824: [2024-11-12 13:28:23,899] [INFO] [launch.py:256:main] process 261018 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=0', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003824: [2024-11-12 13:28:23,911] [INFO] [launch.py:256:main] process 261019 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=1', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003824: [2024-11-12 13:28:23,920] [INFO] [launch.py:256:main] process 261020 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=2', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003824: [2024-11-12 13:28:23,929] [INFO] [launch.py:256:main] process 261021 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=3', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: [2024-11-12 13:28:27,419] [INFO] [launch.py:139:main] 0 NCCL_NET_GDR_LEVEL=PHB
+nid003877: [2024-11-12 13:28:27,419] [INFO] [launch.py:139:main] 0 NCCL_SOCKET_IFNAME=hsn
+nid003877: [2024-11-12 13:28:27,419] [INFO] [launch.py:146:main] WORLD INFO DICT: {'nid003877': [0, 1, 2, 3], 'nid003824': [0, 1, 2, 3]}
+nid003877: [2024-11-12 13:28:27,419] [INFO] [launch.py:152:main] nnodes=2, num_local_procs=4, node_rank=0
+nid003877: [2024-11-12 13:28:27,419] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'nid003877': [0, 1, 2, 3], 'nid003824': [4, 5, 6, 7]})
+nid003877: [2024-11-12 13:28:27,419] [INFO] [launch.py:164:main] dist_world_size=8
+nid003877: [2024-11-12 13:28:27,419] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+nid003877: [2024-11-12 13:28:27,431] [INFO] [launch.py:256:main] process 2022212 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=0', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003877: [2024-11-12 13:28:27,442] [INFO] [launch.py:256:main] process 2022213 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=1', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003877: [2024-11-12 13:28:27,453] [INFO] [launch.py:256:main] process 2022214 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=2', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003877: [2024-11-12 13:28:27,462] [INFO] [launch.py:256:main] process 2022215 spawned with command: ['/global/u2/a/aahmad2/DDL/bin/python', '-u', 'main.py', '--local_rank=3', '--deepspeed_config', 'ds_config.json', '--sft_only_data_path', 'Dahoas/rm-static', '--model_name_or_path', '/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/Llama-3.1-8B', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--max_seq_len', '1024', '--learning_rate', '9.65e-6', '--weight_decay', '0.0', '--num_train_epochs', '1', '--gradient_accumulation_steps', '1', '--lr_scheduler_type', 'cosine', '--num_warmup_steps', '0', '--seed', '1234', '--gradient_checkpointing', '--zero_stage', '3', '--deepspeed', '--lora_dim', '0', '--lora_module_name', 'layers.', '--output_dir', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636', '--print_loss', '--save_interval', '2000', '--enable_tensorboard', '--tensorboard_path', './output_Llama-3.1-8B_epoch1_batch2_seq1024_lora0_zero3_20241112-132636/tensorboard_logs']
+nid003824: [2024-11-12 13:28:39,339] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003824: [2024-11-12 13:28:39,509] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003824: [2024-11-12 13:28:39,545] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003824: [2024-11-12 13:28:39,548] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003877: [2024-11-12 13:28:42,402] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003877: [2024-11-12 13:28:42,409] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003877: [2024-11-12 13:28:42,427] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003877: [2024-11-12 13:28:42,429] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003824:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003877: /global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+nid003877:   warnings.warn(_BETA_TRANSFORMS_WARNING)
+nid003824: [2024-11-12 13:29:01,497] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003824: [2024-11-12 13:29:01,504] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003824: [2024-11-12 13:29:01,535] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003824: [2024-11-12 13:29:01,585] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003877: [2024-11-12 13:29:02,150] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003877: [2024-11-12 13:29:02,222] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003877: [2024-11-12 13:29:02,449] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003877: [2024-11-12 13:29:02,450] [INFO] [comm.py:652:init_distributed] cdb=None
+nid003877: [2024-11-12 13:29:02,450] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+nid003877: [2024-11-12 13:29:07,392] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:29:07,392] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:29:07,392] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003824: [2024-11-12 13:29:07,682] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003824: [2024-11-12 13:29:07,682] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003824: [2024-11-12 13:29:07,682] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:29:07,800] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003824: [2024-11-12 13:29:07,857] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:29:11,626] [INFO] [partition_parameters.py:348:__exit__] finished initializing model - num_params = 291, num_elems = 8.03B
+nid003824: Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.86it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.84it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.73it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.58it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:12,  6.11s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:12,  6.11s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:12,  6.12s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:12,  6.12s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:07,  7.78s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:07,  7.78s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:07,  7.79s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:07,  7.79s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.12s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.32s/it]
+nid003824: Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.12s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.32s/it]
+nid003824: Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.32s/it]
+nid003824: Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.32s/it]
+nid003877: Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.99it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.93it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.83it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:10<00:30, 10.28s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:12,  6.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:12,  6.14s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:12,  6.14s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:07,  7.79s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:07,  7.80s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:07,  7.80s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:20<00:20, 10.36s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.12s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.33s/it]
+nid003877: Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.33s/it]
+nid003877: Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.33s/it]
+nid003877: Loading checkpoint shards:  75%|███████▌  | 3/4 [00:31<00:10, 10.41s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:33<00:00,  7.23s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:33<00:00,  8.38s/it]
+nid003877: Creating prompt dataset ['Dahoas/rm-static'], reload=False
+nid003824: Creating prompt dataset ['Dahoas/rm-static'], reload=False
+nid003877: Creating dataset Dahoas_rm_static for train_phase=1 size=15252
+nid003824: Creating dataset Dahoas_rm_static for train_phase=1 size=15252
+nid003877: Creating dataset Dahoas_rm_static for train_phase=1 size=1021
+nid003824: Creating dataset Dahoas_rm_static for train_phase=1 size=1021
+nid003824: Creating dataset Dahoas_rm_static for train_phase=1 size=76256
+nid003877: Creating dataset Dahoas_rm_static for train_phase=1 size=76256
+nid003824: Creating dataset Dahoas_rm_static for train_phase=1 size=5103
+nid003877: Creating dataset Dahoas_rm_static for train_phase=1 size=5103
+nid003824: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003824: huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+nid003824: To disable this warning, you can either:
+nid003824: 	- Avoid using `tokenizers` before the fork if possible
+nid003824: 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+nid003877: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003824: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003824: huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+nid003824: To disable this warning, you can either:
+nid003824: 	- Avoid using `tokenizers` before the fork if possible
+nid003824: 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+nid003824: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003824: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003877: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003824: huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+nid003824: To disable this warning, you can either:
+nid003824: 	- Avoid using `tokenizers` before the fork if possible
+nid003824: 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+nid003824: Detected CUDA files, patching ldflags
+nid003824: Emitting ninja build file /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118/fused_adam/build.ninja...
+nid003877: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003877: Using /global/u2/a/aahmad2/.cache/torch_extensions/py39_cu118 as PyTorch extensions root...
+nid003824: Building extension module fused_adam...
+nid003824: Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+nid003824: huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+nid003824: To disable this warning, you can either:
+nid003824: 	- Avoid using `tokenizers` before the fork if possible
+nid003824: 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+nid003824: ninja: no work to do.
+nid003824: Loading extension module fused_adam...
+nid003824: Loading extension module fused_adam...
+nid003824: Loading extension module fused_adam...
+nid003877: Loading extension module fused_adam...Loading extension module fused_adam...
+nid003877: 
+nid003877: Loading extension module fused_adam...
+nid003824: Loading extension module fused_adam...
+nid003877: Loading extension module fused_adam...
+nid003824: Time to load fused_adam op: 1.6517057418823242 seconds
+nid003824: Time to load fused_adam op: 1.895763635635376 seconds
+nid003824: Time to load fused_adam op: 2.346647024154663 seconds
+nid003877: Time to load fused_adam op: 1.4812977313995361 secondsTime to load fused_adam op: 0.7430019378662109 seconds
+nid003877: 
+nid003877: Time to load fused_adam op: 2.120420455932617 seconds
+nid003824: Time to load fused_adam op: 1.517747163772583 seconds
+nid003877: [2024-11-12 13:32:04,592] [INFO] [logging.py:129:log_dist] [Rank 0] DeepSpeed info: version=0.15.3, git-hash=unknown, git-branch=unknown
+nid003877: [2024-11-12 13:32:04,592] [INFO] [comm.py:677:init_distributed] Distributed backend already initialized
+nid003877: Time to load fused_adam op: 0.7441318035125732 seconds
+nid003824: [2024-11-12 13:32:04,593] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003824: [2024-11-12 13:32:04,593] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003824: [2024-11-12 13:32:04,593] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003824: [2024-11-12 13:32:04,593] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:32:04,594] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:32:04,593] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:32:04,594] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:32:04,594] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 8
+nid003877: [2024-11-12 13:32:06,319] [INFO] [logging.py:129:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+nid003877: [2024-11-12 13:32:06,320] [INFO] [logging.py:129:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+nid003877: [2024-11-12 13:32:06,321] [INFO] [logging.py:129:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+nid003877: [2024-11-12 13:32:06,330] [INFO] [logging.py:129:log_dist] [Rank 0] DeepSpeed Basic Optimizer = FusedAdam
+nid003877: [2024-11-12 13:32:06,330] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=FusedAdam type=<class 'deepspeed.ops.adam.fused_adam.FusedAdam'>
+nid003877: [2024-11-12 13:32:06,330] [INFO] [logging.py:129:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+nid003877: [2024-11-12 13:32:06,330] [INFO] [logging.py:129:log_dist] [Rank 0] Creating torch.float16 ZeRO stage 3 optimizer
+nid003877: [2024-11-12 13:32:06,845] [INFO] [utils.py:781:see_memory_usage] Stage 3 initialize beginning
+nid003877: [2024-11-12 13:32:06,846] [INFO] [utils.py:782:see_memory_usage] MA 3.58 GB         Max_MA 5.78 GB         CA 9.85 GB         Max_CA 10 GB 
+nid003877: [2024-11-12 13:32:06,846] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.75 GB, percent = 48.0%
+nid003877: [2024-11-12 13:32:06,848] [INFO] [stage3.py:166:__init__] Reduce bucket size 500000000
+nid003877: [2024-11-12 13:32:06,848] [INFO] [stage3.py:167:__init__] Prefetch bucket size 50000000
+nid003877: [2024-11-12 13:32:07,358] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+nid003877: [2024-11-12 13:32:07,359] [INFO] [utils.py:782:see_memory_usage] MA 3.58 GB         Max_MA 3.58 GB         CA 9.85 GB         Max_CA 10 GB 
+nid003877: [2024-11-12 13:32:07,359] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.75 GB, percent = 48.0%
+nid003877: Parameter Offload: Total persistent parameters: 266240 in 65 params
+nid003877: [2024-11-12 13:32:07,939] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+nid003877: [2024-11-12 13:32:07,939] [INFO] [utils.py:782:see_memory_usage] MA 1.87 GB         Max_MA 3.7 GB         CA 9.85 GB         Max_CA 10 GB 
+nid003877: [2024-11-12 13:32:07,939] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.83 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:08,448] [INFO] [utils.py:781:see_memory_usage] Before creating fp16 partitions
+nid003877: [2024-11-12 13:32:08,448] [INFO] [utils.py:782:see_memory_usage] MA 1.87 GB         Max_MA 1.87 GB         CA 9.85 GB         Max_CA 10 GB 
+nid003877: [2024-11-12 13:32:08,449] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.82 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:10,487] [INFO] [utils.py:781:see_memory_usage] After creating fp16 partitions: 2
+nid003877: [2024-11-12 13:32:10,488] [INFO] [utils.py:782:see_memory_usage] MA 1.87 GB         Max_MA 1.87 GB         CA 1.87 GB         Max_CA 10 GB 
+nid003877: [2024-11-12 13:32:10,488] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.82 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:10,989] [INFO] [utils.py:781:see_memory_usage] Before creating fp32 partitions
+nid003877: [2024-11-12 13:32:10,990] [INFO] [utils.py:782:see_memory_usage] MA 1.87 GB         Max_MA 1.87 GB         CA 1.87 GB         Max_CA 2 GB 
+nid003877: [2024-11-12 13:32:10,990] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.82 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:11,498] [INFO] [utils.py:781:see_memory_usage] After creating fp32 partitions
+nid003877: [2024-11-12 13:32:11,499] [INFO] [utils.py:782:see_memory_usage] MA 5.61 GB         Max_MA 7.48 GB         CA 7.48 GB         Max_CA 7 GB 
+nid003877: [2024-11-12 13:32:11,499] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.82 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:11,998] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+nid003877: [2024-11-12 13:32:11,999] [INFO] [utils.py:782:see_memory_usage] MA 5.61 GB         Max_MA 5.61 GB         CA 7.48 GB         Max_CA 7 GB 
+nid003877: [2024-11-12 13:32:11,999] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.82 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:12,006] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | init_optimizer_state: 0.10
+nid003877: [2024-11-12 13:32:12,505] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+nid003877: [2024-11-12 13:32:12,505] [INFO] [utils.py:782:see_memory_usage] MA 5.61 GB         Max_MA 9.35 GB         CA 11.22 GB         Max_CA 11 GB 
+nid003877: [2024-11-12 13:32:12,506] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.81 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:12,506] [INFO] [stage3.py:521:_setup_for_real_optimizer] optimizer state initialized
+nid003877: [2024-11-12 13:32:15,588] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+nid003877: [2024-11-12 13:32:15,589] [INFO] [utils.py:782:see_memory_usage] MA 8.41 GB         Max_MA 10.37 GB         CA 17.99 GB         Max_CA 18 GB 
+nid003877: [2024-11-12 13:32:15,589] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 120.88 GB, percent = 48.1%
+nid003877: [2024-11-12 13:32:15,589] [INFO] [logging.py:129:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer_Stage3
+nid003877: [2024-11-12 13:32:15,589] [INFO] [logging.py:129:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+nid003877: [2024-11-12 13:32:15,589] [INFO] [logging.py:129:log_dist] [Rank 0] DeepSpeed LR Scheduler = <torch.optim.lr_scheduler.LambdaLR object at 0x7f147e4d6310>
+nid003877: [2024-11-12 13:32:15,589] [INFO] [logging.py:129:log_dist] [Rank 0] step=0, skipped=0, lr=[9.65e-06, 9.65e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:32:15,591] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+nid003877: [2024-11-12 13:32:15,591] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+nid003877:     "partition_activations": true, 
+nid003877:     "contiguous_memory_optimization": false, 
+nid003877:     "cpu_checkpointing": false, 
+nid003877:     "number_checkpoints": null, 
+nid003877:     "synchronize_checkpoint_boundary": false, 
+nid003877:     "profile": false
+nid003877: }
+nid003877: [2024-11-12 13:32:15,591] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+nid003877: [2024-11-12 13:32:15,591] [INFO] [config.py:1003:print]   amp_enabled .................. False
+nid003877: [2024-11-12 13:32:15,591] [INFO] [config.py:1003:print]   amp_params ................... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   autotuning_config ............ {
+nid003877:     "enabled": false, 
+nid003877:     "start_step": null, 
+nid003877:     "end_step": null, 
+nid003877:     "metric_path": null, 
+nid003877:     "arg_mappings": null, 
+nid003877:     "metric": "throughput", 
+nid003877:     "model_info": null, 
+nid003877:     "results_dir": "autotuning_results", 
+nid003877:     "exps_dir": "autotuning_exps", 
+nid003877:     "overwrite": true, 
+nid003877:     "fast": true, 
+nid003877:     "start_profile_step": 3, 
+nid003877:     "end_profile_step": 5, 
+nid003877:     "tuner_type": "gridsearch", 
+nid003877:     "tuner_early_stopping": 5, 
+nid003877:     "tuner_num_trials": 50, 
+nid003877:     "model_info_path": null, 
+nid003877:     "mp_size": 1, 
+nid003877:     "max_train_batch_size": null, 
+nid003877:     "min_train_batch_size": 1, 
+nid003877:     "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+nid003877:     "min_train_micro_batch_size_per_gpu": 1, 
+nid003877:     "num_tuning_micro_batch_sizes": 3
+nid003877: }
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   bfloat16_enabled ............. False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f147e4d6c10>
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   communication_data_type ...... None
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   disable_allgather ............ False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   dump_state ................... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+nid003877:     "enabled": false, 
+nid003877:     "recompute_fwd_factor": 0.0, 
+nid003877:     "profile_step": 1, 
+nid003877:     "module_depth": -1, 
+nid003877:     "top_modules": 1, 
+nid003877:     "detailed": true, 
+nid003877:     "output_file": null
+nid003877: }
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   fp16_auto_cast ............... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   fp16_enabled ................. True
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   global_rank .................. 0
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 1
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   gradient_clipping ............ 0.0
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 65536
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   loss_scale ................... 0
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+nid003877: [2024-11-12 13:32:15,592] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=True, output_path='${OUTPUT}/tensorboard_logs', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   nebula_config ................ {
+nid003877:     "enabled": false, 
+nid003877:     "persistent_storage_path": null, 
+nid003877:     "persistent_time_interval": 100, 
+nid003877:     "num_of_version_in_retention": 2, 
+nid003877:     "enable_nebula_load": true, 
+nid003877:     "load_path": null
+nid003877: }
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   optimizer_name ............... adam
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   optimizer_params ............. {'lr': 9.65e-06, 'betas': [0.9, 0.999], 'eps': 1e-08}
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   pld_enabled .................. False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   pld_params ................... False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   scheduler_name ............... None
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   scheduler_params ............. None
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   sparse_attention ............. None
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   steps_per_print .............. 10
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   train_batch_size ............. 16
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  2
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... True
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   world_size ................... 8
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  False
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=False use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   zero_enabled ................. True
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 3
+nid003877: [2024-11-12 13:32:15,593] [INFO] [config.py:989:print_user_config]   json = {
+nid003877:     "train_batch_size": 16, 
+nid003877:     "steps_per_print": 10, 
+nid003877:     "optimizer": {
+nid003877:         "type": "Adam", 
+nid003877:         "params": {
+nid003877:             "lr": 9.65e-06, 
+nid003877:             "betas": [0.9, 0.999], 
+nid003877:             "eps": 1e-08
+nid003877:         }
+nid003877:     }, 
+nid003877:     "fp16": {
+nid003877:         "enabled": true
+nid003877:     }, 
+nid003877:     "gradient_accumulation_steps": 1, 
+nid003877:     "zero_optimization": {
+nid003877:         "stage": 3, 
+nid003877:         "offload_optimizer": {
+nid003877:             "device": "none"
+nid003877:         }
+nid003877:     }, 
+nid003877:     "activation_checkpointing": {
+nid003877:         "partition_activations": true
+nid003877:     }, 
+nid003877:     "wall_clock_breakdown": true, 
+nid003877:     "tensorboard": {
+nid003877:         "enabled": true, 
+nid003877:         "output_path": "${OUTPUT}/tensorboard_logs"
+nid003877:     }
+nid003877: }
+nid003877: ***** Running training *****
+nid003877: ***** Evaluating perplexity, Epoch 0/1 *****
+nid003877: ppl: 198.80247497558594, loss: 5.292311668395996
+nid003877: Beginning of Epoch 1/1, Total Micro Batches 5720
+nid003824: Epoch: 0, Step: 0, Rank: 6, loss = 5.239831447601318
+nid003824: Epoch: 0, Step: 0, Rank: 7, loss = 5.429459095001221
+nid003824: Epoch: 0, Step: 0, Rank: 4, loss = 5.755937576293945
+nid003877: Epoch: 0, Step: 0, Rank: 2, loss = 4.834829807281494
+nid003824: Epoch: 0, Step: 0, Rank: 5, loss = 5.245481967926025
+nid003877: Epoch: 0, Step: 0, Rank: 3, loss = 5.511155605316162
+nid003877: Epoch: 0, Step: 0, Rank: 0, loss = 5.471961498260498
+nid003877: Epoch: 0, Step: 0, Rank: 1, loss = 5.3838653564453125
+nid003877: [2024-11-12 13:42:45,085] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 4294967296, reducing to 2147483648
+nid003877: [2024-11-12 13:42:45,091] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 621354.92 | bwd_microstep: 7629.01 | bwd_inner_microstep: 7408.39 | bwd_allreduce_microstep: 220.49 | step_microstep: 86.93
+nid003877: [2024-11-12 13:42:45,100] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 11.03s, TFLOPs: 1.32, Samples/sec: 0.18, Time/seq 5.52s, Batch Size: 2, Sequence Length: 1024
+nid003877: Step 0: GPU Memory Usage
+nid003877: GPU 0 Memory Usage:
+nid003877:   Total: 40960 MB
+nid003877:   Used:  36242 MB
+nid003877:   Free:  4717 MB
+nid003877:   Usage: 36242/40960 MB (88.48%)
+nid003877: 
+nid003877: GPU 1 Memory Usage:
+nid003877:   Total: 40960 MB
+nid003877:   Used:  36304 MB
+nid003877:   Free:  4655 MB
+nid003877:   Usage: 36304/40960 MB (88.63%)
+nid003877: 
+nid003877: GPU 2 Memory Usage:
+nid003877:   Total: 40960 MB
+nid003877:   Used:  36328 MB
+nid003877:   Free:  4631 MB
+nid003877:   Usage: 36328/40960 MB (88.69%)
+nid003877: 
+nid003877: GPU 3 Memory Usage:
+nid003877:   Total: 40960 MB
+nid003877:   Used:  36280 MB
+nid003877:   Free:  4679 MB
+nid003877:   Usage: 36280/40960 MB (88.57%)
+nid003877: 
+nid003824: Epoch: 0, Step: 1, Rank: 4, loss = 5.396299362182617
+nid003824: Epoch: 0, Step: 1, Rank: 7, loss = 5.132946491241455
+nid003877: Epoch: 0, Step: 1, Rank: 0, loss = 5.390113830566406
+nid003877: Epoch: 0, Step: 1, Rank: 3, loss = 5.401559352874756
+nid003824: Epoch: 0, Step: 1, Rank: 5, loss = 4.823024749755859
+nid003877: Epoch: 0, Step: 1, Rank: 1, loss = 5.349032878875732
+nid003824: Epoch: 0, Step: 1, Rank: 6, loss = 5.329240322113037
+nid003877: Epoch: 0, Step: 1, Rank: 2, loss = 5.533565044403076
+nid003877: [2024-11-12 13:42:51,543] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 2147483648, reducing to 1073741824
+nid003877: [2024-11-12 13:42:51,546] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3109.02 | bwd_microstep: 3309.47 | bwd_inner_microstep: 2824.25 | bwd_allreduce_microstep: 485.13 | step_microstep: 18.30
+nid003877: [2024-11-12 13:42:51,552] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.45s, TFLOPs: 2.26, Samples/sec: 0.31, Time/seq 3.23s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 2, Rank: 5, loss = 4.834660053253174
+nid003824: Epoch: 0, Step: 2, Rank: 4, loss = 5.514853477478027
+nid003824: Epoch: 0, Step: 2, Rank: 6, loss = 5.204943656921387
+nid003824: Epoch: 0, Step: 2, Rank: 7, loss = 5.114037036895752
+nid003877: Epoch: 0, Step: 2, Rank: 0, loss = 5.384698390960693
+nid003877: Epoch: 0, Step: 2, Rank: 1, loss = 5.07896614074707
+nid003877: Epoch: 0, Step: 2, Rank: 2, loss = 5.318970680236816
+nid003877: Epoch: 0, Step: 2, Rank: 3, loss = 5.670955181121826
+nid003877: [2024-11-12 13:42:58,084] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 1073741824, reducing to 536870912
+nid003877: [2024-11-12 13:42:58,088] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3137.67 | bwd_microstep: 3371.04 | bwd_inner_microstep: 2794.86 | bwd_allreduce_microstep: 576.09 | step_microstep: 19.10
+nid003877: [2024-11-12 13:42:58,093] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.54s, TFLOPs: 2.22, Samples/sec: 0.31, Time/seq 3.27s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 3, Rank: 3, loss = 5.550724029541016
+nid003877: Epoch: 0, Step: 3, Rank: 1, loss = 5.581611156463623
+nid003877: Epoch: 0, Step: 3, Rank: 2, loss = 5.064542770385742
+nid003877: Epoch: 0, Step: 3, Rank: 0, loss = 5.092523574829102
+nid003824: Epoch: 0, Step: 3, Rank: 7, loss = 4.910758018493652
+nid003824: Epoch: 0, Step: 3, Rank: 6, loss = 5.506446838378906
+nid003824: Epoch: 0, Step: 3, Rank: 5, loss = 5.312474727630615
+nid003824: Epoch: 0, Step: 3, Rank: 4, loss = 5.615683555603027
+nid003877: [2024-11-12 13:43:04,605] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 536870912, reducing to 268435456
+nid003877: [2024-11-12 13:43:04,609] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3106.08 | bwd_microstep: 3378.66 | bwd_inner_microstep: 2901.85 | bwd_allreduce_microstep: 476.72 | step_microstep: 23.30
+nid003877: [2024-11-12 13:43:04,614] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.52s, TFLOPs: 2.23, Samples/sec: 0.31, Time/seq 3.26s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 4, Rank: 3, loss = 5.20656156539917
+nid003877: Epoch: 0, Step: 4, Rank: 2, loss = 5.40394926071167
+nid003877: Epoch: 0, Step: 4, Rank: 1, loss = 4.800414562225342
+nid003824: Epoch: 0, Step: 4, Rank: 7, loss = 5.564266681671143
+nid003877: Epoch: 0, Step: 4, Rank: 0, loss = 5.825443267822266
+nid003824: Epoch: 0, Step: 4, Rank: 6, loss = 5.281193256378174
+nid003824: Epoch: 0, Step: 4, Rank: 5, loss = 5.707530975341797
+nid003824: Epoch: 0, Step: 4, Rank: 4, loss = 5.295010566711426
+nid003877: [2024-11-12 13:43:11,185] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 268435456, reducing to 134217728
+nid003877: [2024-11-12 13:43:11,189] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3140.30 | bwd_microstep: 3404.75 | bwd_inner_microstep: 2800.77 | bwd_allreduce_microstep: 603.85 | step_microstep: 20.59
+nid003877: [2024-11-12 13:43:11,194] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.58s, TFLOPs: 2.21, Samples/sec: 0.30, Time/seq 3.29s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 5, Rank: 3, loss = 5.2572712898254395
+nid003877: Epoch: 0, Step: 5, Rank: 2, loss = 5.398710250854492
+nid003877: Epoch: 0, Step: 5, Rank: 1, loss = 5.190235614776611
+nid003824: Epoch: 0, Step: 5, Rank: 7, loss = 5.304120063781738
+nid003877: Epoch: 0, Step: 5, Rank: 0, loss = 5.430584907531738
+nid003824: Epoch: 0, Step: 5, Rank: 6, loss = 5.031684398651123
+nid003824: Epoch: 0, Step: 5, Rank: 5, loss = 5.2505974769592285
+nid003824: Epoch: 0, Step: 5, Rank: 4, loss = 5.900383949279785
+nid003877: [2024-11-12 13:43:17,654] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 134217728, reducing to 67108864
+nid003877: [2024-11-12 13:43:17,658] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3122.09 | bwd_microstep: 3313.91 | bwd_inner_microstep: 2839.82 | bwd_allreduce_microstep: 474.00 | step_microstep: 19.08
+nid003877: [2024-11-12 13:43:17,663] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.47s, TFLOPs: 2.25, Samples/sec: 0.31, Time/seq 3.23s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 6, Rank: 3, loss = 5.339304447174072
+nid003877: Epoch: 0, Step: 6, Rank: 2, loss = 5.225033760070801
+nid003824: Epoch: 0, Step: 6, Rank: 7, loss = 5.149721622467041
+nid003877: Epoch: 0, Step: 6, Rank: 1, loss = 5.254559516906738
+nid003824: Epoch: 0, Step: 6, Rank: 6, loss = 5.505429744720459
+nid003877: Epoch: 0, Step: 6, Rank: 0, loss = 5.3094329833984375
+nid003824: Epoch: 0, Step: 6, Rank: 5, loss = 5.026510238647461
+nid003824: Epoch: 0, Step: 6, Rank: 4, loss = 4.714978218078613
+nid003877: [2024-11-12 13:43:24,061] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 67108864, reducing to 33554432
+nid003877: [2024-11-12 13:43:24,065] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3145.60 | bwd_microstep: 3224.14 | bwd_inner_microstep: 2792.62 | bwd_allreduce_microstep: 431.44 | step_microstep: 18.48
+nid003877: [2024-11-12 13:43:24,070] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.41s, TFLOPs: 2.27, Samples/sec: 0.31, Time/seq 3.20s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 7, Rank: 3, loss = 5.074549198150635
+nid003877: Epoch: 0, Step: 7, Rank: 1, loss = 5.764744281768799
+nid003877: Epoch: 0, Step: 7, Rank: 2, loss = 5.402464866638184
+nid003824: Epoch: 0, Step: 7, Rank: 7, loss = 5.032578468322754
+nid003877: Epoch: 0, Step: 7, Rank: 0, loss = 5.103560447692871
+nid003824: Epoch: 0, Step: 7, Rank: 6, loss = 5.148334980010986
+nid003824: Epoch: 0, Step: 7, Rank: 5, loss = 5.573179721832275
+nid003824: Epoch: 0, Step: 7, Rank: 4, loss = 5.338865280151367
+nid003877: [2024-11-12 13:43:30,527] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 33554432, reducing to 16777216
+nid003877: [2024-11-12 13:43:30,531] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3098.99 | bwd_microstep: 3333.31 | bwd_inner_microstep: 2811.51 | bwd_allreduce_microstep: 521.71 | step_microstep: 19.39
+nid003877: [2024-11-12 13:43:30,537] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.47s, TFLOPs: 2.25, Samples/sec: 0.31, Time/seq 3.23s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 8, Rank: 3, loss = 5.27523946762085
+nid003877: Epoch: 0, Step: 8, Rank: 1, loss = 5.161639213562012
+nid003877: Epoch: 0, Step: 8, Rank: 2, loss = 5.35361385345459
+nid003824: Epoch: 0, Step: 8, Rank: 7, loss = 4.8983564376831055
+nid003877: Epoch: 0, Step: 8, Rank: 0, loss = 5.507984638214111
+nid003824: Epoch: 0, Step: 8, Rank: 6, loss = 5.424384593963623
+nid003824: Epoch: 0, Step: 8, Rank: 5, loss = 5.578087329864502
+nid003824: Epoch: 0, Step: 8, Rank: 4, loss = 4.908186912536621
+nid003877: [2024-11-12 13:43:36,961] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 16777216, reducing to 8388608
+nid003877: [2024-11-12 13:43:36,965] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3109.55 | bwd_microstep: 3284.81 | bwd_inner_microstep: 2828.44 | bwd_allreduce_microstep: 456.29 | step_microstep: 22.42
+nid003877: [2024-11-12 13:43:36,970] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.43s, TFLOPs: 2.26, Samples/sec: 0.31, Time/seq 3.22s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 9, Rank: 5, loss = 4.33745002746582
+nid003824: Epoch: 0, Step: 9, Rank: 4, loss = 5.554394245147705
+nid003824: Epoch: 0, Step: 9, Rank: 6, loss = 5.062519550323486
+nid003877: Epoch: 0, Step: 9, Rank: 1, loss = 3.9054458141326904
+nid003824: Epoch: 0, Step: 9, Rank: 7, loss = 4.971383571624756
+nid003877: Epoch: 0, Step: 9, Rank: 0, loss = 5.506872177124023
+nid003877: Epoch: 0, Step: 9, Rank: 2, loss = 5.176208019256592
+nid003877: Epoch: 0, Step: 9, Rank: 3, loss = 5.327040195465088
+nid003877: [2024-11-12 13:43:43,425] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 8388608, reducing to 4194304
+nid003877: [2024-11-12 13:43:43,426] [INFO] [logging.py:129:log_dist] [Rank 0] step=10, skipped=10, lr=[9.65e-06, 9.65e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:43:43,426] [INFO] [timer.py:264:stop] epoch=0/micro_step=10/global_step=10, RunningAvgSamplesPerSec=2.4712347898339373, CurrSamplesPerSec=2.479256005131295, MemAllocated=8.92GB, MaxMemAllocated=17.28GB
+nid003877: [2024-11-12 13:43:43,430] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3158.53 | bwd_microstep: 3271.15 | bwd_inner_microstep: 2763.18 | bwd_allreduce_microstep: 507.88 | step_microstep: 18.66
+nid003877: [2024-11-12 13:43:43,436] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.46s, TFLOPs: 2.25, Samples/sec: 0.31, Time/seq 3.23s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 10, Rank: 3, loss = 5.2032270431518555
+nid003877: Epoch: 0, Step: 10, Rank: 2, loss = 5.002227783203125
+nid003877: Epoch: 0, Step: 10, Rank: 0, loss = 5.440561771392822
+nid003824: Epoch: 0, Step: 10, Rank: 4, loss = 5.151022911071777
+nid003877: Epoch: 0, Step: 10, Rank: 1, loss = 5.603844165802002
+nid003824: Epoch: 0, Step: 10, Rank: 7, loss = 4.828200817108154
+nid003824: Epoch: 0, Step: 10, Rank: 5, loss = 4.8723530769348145
+nid003824: Epoch: 0, Step: 10, Rank: 6, loss = 5.3000898361206055
+nid003877: [2024-11-12 13:43:49,776] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 4194304, reducing to 2097152
+nid003877: [2024-11-12 13:43:49,781] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3033.50 | bwd_microstep: 3284.56 | bwd_inner_microstep: 2704.51 | bwd_allreduce_microstep: 579.97 | step_microstep: 18.67
+nid003877: [2024-11-12 13:43:49,786] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.35s, TFLOPs: 2.29, Samples/sec: 0.32, Time/seq 3.17s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 11, Rank: 3, loss = 5.33573579788208
+nid003877: Epoch: 0, Step: 11, Rank: 0, loss = 4.965549945831299
+nid003877: Epoch: 0, Step: 11, Rank: 1, loss = 5.614521503448486
+nid003824: Epoch: 0, Step: 11, Rank: 4, loss = 4.878405570983887
+nid003877: Epoch: 0, Step: 11, Rank: 2, loss = 5.2594313621521
+nid003824: Epoch: 0, Step: 11, Rank: 7, loss = 5.308657169342041
+nid003824: Epoch: 0, Step: 11, Rank: 5, loss = 5.74165678024292
+nid003824: Epoch: 0, Step: 11, Rank: 6, loss = 5.414793014526367
+nid003877: [2024-11-12 13:43:56,170] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 2097152, reducing to 1048576
+nid003877: [2024-11-12 13:43:56,174] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3057.30 | bwd_microstep: 3300.72 | bwd_inner_microstep: 2728.91 | bwd_allreduce_microstep: 571.73 | step_microstep: 21.65
+nid003877: [2024-11-12 13:43:56,179] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.39s, TFLOPs: 2.28, Samples/sec: 0.31, Time/seq 3.20s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 12, Rank: 6, loss = 6.076756000518799
+nid003877: Epoch: 0, Step: 12, Rank: 0, loss = 5.245694160461426
+nid003824: Epoch: 0, Step: 12, Rank: 7, loss = 5.400914669036865
+nid003824: Epoch: 0, Step: 12, Rank: 4, loss = 5.385864734649658
+nid003877: Epoch: 0, Step: 12, Rank: 3, loss = 5.060932159423828
+nid003824: Epoch: 0, Step: 12, Rank: 5, loss = 5.407543659210205
+nid003877: Epoch: 0, Step: 12, Rank: 1, loss = 5.434121608734131
+nid003877: Epoch: 0, Step: 12, Rank: 2, loss = 5.065775394439697
+nid003877: [2024-11-12 13:44:02,568] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 1048576, reducing to 524288
+nid003877: [2024-11-12 13:44:02,572] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3041.74 | bwd_microstep: 3322.50 | bwd_inner_microstep: 2782.55 | bwd_allreduce_microstep: 539.88 | step_microstep: 18.49
+nid003877: [2024-11-12 13:44:02,577] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.40s, TFLOPs: 2.27, Samples/sec: 0.31, Time/seq 3.20s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 13, Rank: 3, loss = 5.600975513458252
+nid003877: Epoch: 0, Step: 13, Rank: 2, loss = 4.683112144470215
+nid003877: Epoch: 0, Step: 13, Rank: 1, loss = 5.608261585235596
+nid003877: Epoch: 0, Step: 13, Rank: 0, loss = 5.568296909332275
+nid003824: Epoch: 0, Step: 13, Rank: 7, loss = 5.438972473144531
+nid003824: Epoch: 0, Step: 13, Rank: 6, loss = 5.582348823547363
+nid003824: Epoch: 0, Step: 13, Rank: 5, loss = 5.109443187713623
+nid003824: Epoch: 0, Step: 13, Rank: 4, loss = 5.165768146514893
+nid003877: [2024-11-12 13:44:09,298] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 524288, reducing to 262144
+nid003877: [2024-11-12 13:44:09,302] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3163.92 | bwd_microstep: 3530.39 | bwd_inner_microstep: 2893.35 | bwd_allreduce_microstep: 636.90 | step_microstep: 22.31
+nid003877: [2024-11-12 13:44:09,307] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.73s, TFLOPs: 2.16, Samples/sec: 0.30, Time/seq 3.36s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 14, Rank: 3, loss = 5.858518123626709
+nid003877: Epoch: 0, Step: 14, Rank: 2, loss = 4.9521708488464355
+nid003877: Epoch: 0, Step: 14, Rank: 1, loss = 5.043964385986328
+nid003877: Epoch: 0, Step: 14, Rank: 0, loss = 5.479615688323975
+nid003824: Epoch: 0, Step: 14, Rank: 7, loss = 4.9281182289123535
+nid003824: Epoch: 0, Step: 14, Rank: 6, loss = 5.709320545196533
+nid003824: Epoch: 0, Step: 14, Rank: 5, loss = 5.10335111618042
+nid003824: Epoch: 0, Step: 14, Rank: 4, loss = 5.593417644500732
+nid003877: [2024-11-12 13:44:15,855] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 262144, reducing to 131072
+nid003877: [2024-11-12 13:44:15,858] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3122.40 | bwd_microstep: 3396.88 | bwd_inner_microstep: 2846.57 | bwd_allreduce_microstep: 550.23 | step_microstep: 23.93
+nid003877: [2024-11-12 13:44:15,863] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.55s, TFLOPs: 2.22, Samples/sec: 0.31, Time/seq 3.28s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 15, Rank: 3, loss = 4.973479270935059
+nid003877: Epoch: 0, Step: 15, Rank: 2, loss = 5.369106769561768
+nid003824: Epoch: 0, Step: 15, Rank: 7, loss = 5.468786716461182
+nid003877: Epoch: 0, Step: 15, Rank: 1, loss = 4.967098712921143
+nid003824: Epoch: 0, Step: 15, Rank: 6, loss = 5.188107967376709
+nid003877: Epoch: 0, Step: 15, Rank: 0, loss = 5.64430570602417
+nid003824: Epoch: 0, Step: 15, Rank: 5, loss = 5.187560558319092
+nid003824: Epoch: 0, Step: 15, Rank: 4, loss = 5.421948432922363
+nid003877: [2024-11-12 13:44:22,425] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 131072, reducing to 65536
+nid003877: [2024-11-12 13:44:22,429] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3180.61 | bwd_microstep: 3349.70 | bwd_inner_microstep: 2807.91 | bwd_allreduce_microstep: 541.71 | step_microstep: 23.74
+nid003877: [2024-11-12 13:44:22,435] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.57s, TFLOPs: 2.21, Samples/sec: 0.30, Time/seq 3.29s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 16, Rank: 7, loss = 5.476583957672119
+nid003824: Epoch: 0, Step: 16, Rank: 6, loss = 5.297959327697754
+nid003824: Epoch: 0, Step: 16, Rank: 5, loss = 5.100155353546143
+nid003877: Epoch: 0, Step: 16, Rank: 3, loss = 5.089263439178467
+nid003877: Epoch: 0, Step: 16, Rank: 2, loss = 5.417437553405762
+nid003877: Epoch: 0, Step: 16, Rank: 1, loss = 5.581149578094482
+nid003824: Epoch: 0, Step: 16, Rank: 4, loss = 5.565091133117676
+nid003877: Epoch: 0, Step: 16, Rank: 0, loss = 5.446831703186035
+nid003877: [2024-11-12 13:44:28,968] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 65536, reducing to 32768
+nid003877: [2024-11-12 13:44:28,972] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3118.06 | bwd_microstep: 3389.50 | bwd_inner_microstep: 2781.02 | bwd_allreduce_microstep: 608.36 | step_microstep: 19.73
+nid003877: [2024-11-12 13:44:28,977] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.54s, TFLOPs: 2.22, Samples/sec: 0.31, Time/seq 3.27s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 17, Rank: 3, loss = 5.396078586578369
+nid003824: Epoch: 0, Step: 17, Rank: 6, loss = 5.247985363006592
+nid003877: Epoch: 0, Step: 17, Rank: 2, loss = 5.65081262588501
+nid003824: Epoch: 0, Step: 17, Rank: 7, loss = 5.17138147354126
+nid003877: Epoch: 0, Step: 17, Rank: 1, loss = 5.709127426147461
+nid003824: Epoch: 0, Step: 17, Rank: 4, loss = 4.817855358123779
+nid003877: Epoch: 0, Step: 17, Rank: 0, loss = 5.649532318115234
+nid003824: Epoch: 0, Step: 17, Rank: 5, loss = 5.387493133544922
+nid003877: [2024-11-12 13:44:35,334] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 32768, reducing to 16384
+nid003877: [2024-11-12 13:44:35,338] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3059.18 | bwd_microstep: 3267.31 | bwd_inner_microstep: 2766.79 | bwd_allreduce_microstep: 500.44 | step_microstep: 21.32
+nid003877: [2024-11-12 13:44:35,343] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.36s, TFLOPs: 2.29, Samples/sec: 0.31, Time/seq 3.18s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 18, Rank: 7, loss = 5.172646522521973
+nid003824: Epoch: 0, Step: 18, Rank: 5, loss = 5.0937933921813965
+nid003877: Epoch: 0, Step: 18, Rank: 3, loss = 5.05649471282959
+nid003824: Epoch: 0, Step: 18, Rank: 4, loss = 5.531109809875488
+nid003877: Epoch: 0, Step: 18, Rank: 2, loss = 5.275038242340088
+nid003824: Epoch: 0, Step: 18, Rank: 6, loss = 5.408698081970215
+nid003877: Epoch: 0, Step: 18, Rank: 1, loss = 5.489385604858398
+nid003877: Epoch: 0, Step: 18, Rank: 0, loss = 5.427988529205322
+nid003877: [2024-11-12 13:44:41,710] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 16384, reducing to 8192
+nid003877: [2024-11-12 13:44:41,713] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3063.24 | bwd_microstep: 3274.88 | bwd_inner_microstep: 2729.81 | bwd_allreduce_microstep: 544.99 | step_microstep: 20.38
+nid003877: [2024-11-12 13:44:41,718] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.37s, TFLOPs: 2.28, Samples/sec: 0.31, Time/seq 3.19s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 19, Rank: 4, loss = 5.165937900543213
+nid003824: Epoch: 0, Step: 19, Rank: 7, loss = 5.385835647583008
+nid003824: Epoch: 0, Step: 19, Rank: 5, loss = 5.367560386657715
+nid003877: Epoch: 0, Step: 19, Rank: 3, loss = 5.313152313232422
+nid003824: Epoch: 0, Step: 19, Rank: 6, loss = 5.540277481079102
+nid003877: Epoch: 0, Step: 19, Rank: 2, loss = 5.458789348602295
+nid003877: Epoch: 0, Step: 19, Rank: 1, loss = 5.0870256423950195
+nid003877: Epoch: 0, Step: 19, Rank: 0, loss = 4.928754806518555
+nid003877: [2024-11-12 13:44:48,054] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 8192, reducing to 4096
+nid003877: [2024-11-12 13:44:48,054] [INFO] [logging.py:129:log_dist] [Rank 0] step=20, skipped=20, lr=[9.65e-06, 9.65e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:44:48,055] [INFO] [timer.py:264:stop] epoch=0/micro_step=20/global_step=20, RunningAvgSamplesPerSec=2.476020997771076, CurrSamplesPerSec=2.526152330775738, MemAllocated=8.92GB, MaxMemAllocated=17.28GB
+nid003877: [2024-11-12 13:44:48,058] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3041.80 | bwd_microstep: 3268.11 | bwd_inner_microstep: 2737.54 | bwd_allreduce_microstep: 530.49 | step_microstep: 20.73
+nid003877: [2024-11-12 13:44:48,063] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.34s, TFLOPs: 2.29, Samples/sec: 0.32, Time/seq 3.17s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 20, Rank: 4, loss = 5.228145599365234
+nid003877: Epoch: 0, Step: 20, Rank: 3, loss = 5.192750453948975
+nid003824: Epoch: 0, Step: 20, Rank: 7, loss = 4.930507183074951
+nid003877: Epoch: 0, Step: 20, Rank: 0, loss = 5.766277313232422
+nid003824: Epoch: 0, Step: 20, Rank: 5, loss = 5.650393962860107
+nid003877: Epoch: 0, Step: 20, Rank: 1, loss = 5.016600131988525
+nid003824: Epoch: 0, Step: 20, Rank: 6, loss = 5.240504741668701
+nid003877: Epoch: 0, Step: 20, Rank: 2, loss = 4.7283124923706055
+nid003877: [2024-11-12 13:44:54,521] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 4096, reducing to 2048
+nid003877: [2024-11-12 13:44:54,525] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3145.01 | bwd_microstep: 3283.18 | bwd_inner_microstep: 2806.51 | bwd_allreduce_microstep: 476.59 | step_microstep: 22.52
+nid003877: [2024-11-12 13:44:54,530] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.47s, TFLOPs: 2.25, Samples/sec: 0.31, Time/seq 3.23s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 21, Rank: 3, loss = 5.211971282958984
+nid003877: Epoch: 0, Step: 21, Rank: 2, loss = 5.604772567749023
+nid003877: Epoch: 0, Step: 21, Rank: 1, loss = 5.457327365875244
+nid003824: Epoch: 0, Step: 21, Rank: 7, loss = 5.2819952964782715
+nid003877: Epoch: 0, Step: 21, Rank: 0, loss = 5.013548374176025
+nid003824: Epoch: 0, Step: 21, Rank: 6, loss = 5.509242534637451
+nid003824: Epoch: 0, Step: 21, Rank: 5, loss = 5.407893657684326
+nid003824: Epoch: 0, Step: 21, Rank: 4, loss = 5.38704776763916
+nid003877: [2024-11-12 13:45:01,766] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 653.52
+nid003877: [2024-11-12 13:45:01,767] [WARNING] [stage3.py:2105:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+nid003877: [2024-11-12 13:45:01,770] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3160.31 | bwd_microstep: 3290.89 | bwd_inner_microstep: 2813.48 | bwd_allreduce_microstep: 477.32 | step_microstep: 778.98
+nid003877: [2024-11-12 13:45:01,775] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 7.24s, TFLOPs: 2.01, Samples/sec: 0.28, Time/seq 3.62s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 22, Rank: 3, loss = 4.551754951477051
+nid003824: Epoch: 0, Step: 22, Rank: 5, loss = 3.842353582382202
+nid003824: Epoch: 0, Step: 22, Rank: 7, loss = 3.520801544189453
+nid003824: Epoch: 0, Step: 22, Rank: 6, loss = 4.168675422668457
+nid003824: Epoch: 0, Step: 22, Rank: 4, loss = 4.147041320800781
+nid003877: Epoch: 0, Step: 22, Rank: 2, loss = 4.575399875640869
+nid003877: Epoch: 0, Step: 22, Rank: 1, loss = 4.561161041259766
+nid003877: Epoch: 0, Step: 22, Rank: 0, loss = 4.1070876121521
+nid003877: [2024-11-12 13:45:08,470] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.86
+nid003877: [2024-11-12 13:45:08,473] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3243.34 | bwd_microstep: 3355.92 | bwd_inner_microstep: 2740.20 | bwd_allreduce_microstep: 615.64 | step_microstep: 90.24
+nid003877: [2024-11-12 13:45:08,479] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.70s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 23, Rank: 4, loss = 4.316688537597656
+nid003824: Epoch: 0, Step: 23, Rank: 7, loss = 3.4855082035064697
+nid003824: Epoch: 0, Step: 23, Rank: 6, loss = 4.275789260864258
+nid003877: Epoch: 0, Step: 23, Rank: 0, loss = 4.049375057220459
+nid003824: Epoch: 0, Step: 23, Rank: 5, loss = 4.597234725952148
+nid003877: Epoch: 0, Step: 23, Rank: 3, loss = 4.075444221496582
+nid003877: Epoch: 0, Step: 23, Rank: 1, loss = 4.7831034660339355
+nid003877: Epoch: 0, Step: 23, Rank: 2, loss = 3.6835877895355225
+nid003877: [2024-11-12 13:45:15,153] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:45:15,157] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3159.48 | bwd_microstep: 3413.39 | bwd_inner_microstep: 2798.77 | bwd_allreduce_microstep: 614.53 | step_microstep: 93.82
+nid003877: [2024-11-12 13:45:15,163] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.68s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 24, Rank: 6, loss = 3.4182987213134766
+nid003824: Epoch: 0, Step: 24, Rank: 7, loss = 3.970482110977173
+nid003877: Epoch: 0, Step: 24, Rank: 2, loss = 3.410982131958008
+nid003824: Epoch: 0, Step: 24, Rank: 4, loss = 3.6361045837402344
+nid003877: Epoch: 0, Step: 24, Rank: 3, loss = 2.9803738594055176
+nid003824: Epoch: 0, Step: 24, Rank: 5, loss = 3.7667458057403564
+nid003877: Epoch: 0, Step: 24, Rank: 0, loss = 3.2659473419189453
+nid003877: Epoch: 0, Step: 24, Rank: 1, loss = 3.3368163108825684
+nid003877: [2024-11-12 13:45:21,707] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:45:21,711] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3169.97 | bwd_microstep: 3275.28 | bwd_inner_microstep: 2769.94 | bwd_allreduce_microstep: 505.25 | step_microstep: 91.28
+nid003877: [2024-11-12 13:45:21,716] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.55s, TFLOPs: 2.22, Samples/sec: 0.31, Time/seq 3.28s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 25, Rank: 4, loss = 3.007599115371704Epoch: 0, Step: 25, Rank: 5, loss = 3.2874197959899902
+nid003824: 
+nid003824: Epoch: 0, Step: 25, Rank: 6, loss = 3.7840681076049805
+nid003877: Epoch: 0, Step: 25, Rank: 1, loss = 3.4030637741088867
+nid003824: Epoch: 0, Step: 25, Rank: 7, loss = 3.605515718460083
+nid003877: Epoch: 0, Step: 25, Rank: 2, loss = 3.171358823776245
+nid003877: Epoch: 0, Step: 25, Rank: 0, loss = 3.2710816860198975
+nid003877: Epoch: 0, Step: 25, Rank: 3, loss = 3.850084066390991
+nid003877: [2024-11-12 13:45:28,247] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.86
+nid003877: [2024-11-12 13:45:28,251] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3128.34 | bwd_microstep: 3303.51 | bwd_inner_microstep: 2759.99 | bwd_allreduce_microstep: 543.43 | step_microstep: 92.59
+nid003877: [2024-11-12 13:45:28,257] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.54s, TFLOPs: 2.23, Samples/sec: 0.31, Time/seq 3.27s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 26, Rank: 3, loss = 3.497169256210327
+nid003877: Epoch: 0, Step: 26, Rank: 2, loss = 3.610973596572876
+nid003824: Epoch: 0, Step: 26, Rank: 7, loss = 3.430161952972412
+nid003877: Epoch: 0, Step: 26, Rank: 1, loss = 3.738664388656616
+nid003824: Epoch: 0, Step: 26, Rank: 6, loss = 2.9343857765197754
+nid003877: Epoch: 0, Step: 26, Rank: 0, loss = 3.122199296951294
+nid003824: Epoch: 0, Step: 26, Rank: 5, loss = 4.276288032531738
+nid003824: Epoch: 0, Step: 26, Rank: 4, loss = 3.564279556274414
+nid003877: [2024-11-12 13:45:34,851] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.83
+nid003877: [2024-11-12 13:45:34,855] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3178.86 | bwd_microstep: 3315.79 | bwd_inner_microstep: 2780.19 | bwd_allreduce_microstep: 535.51 | step_microstep: 93.24
+nid003877: [2024-11-12 13:45:34,861] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.60s, TFLOPs: 2.20, Samples/sec: 0.30, Time/seq 3.30s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 27, Rank: 7, loss = 2.9422130584716797
+nid003824: Epoch: 0, Step: 27, Rank: 6, loss = 2.8449504375457764
+nid003824: Epoch: 0, Step: 27, Rank: 5, loss = 2.871025800704956
+nid003877: Epoch: 0, Step: 27, Rank: 2, loss = 3.065941333770752
+nid003824: Epoch: 0, Step: 27, Rank: 4, loss = 3.007173538208008
+nid003877: Epoch: 0, Step: 27, Rank: 3, loss = 3.079497814178467
+nid003877: Epoch: 0, Step: 27, Rank: 1, loss = 3.2165846824645996
+nid003877: Epoch: 0, Step: 27, Rank: 0, loss = 2.3858273029327393
+nid003877: [2024-11-12 13:45:41,380] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.89
+nid003877: [2024-11-12 13:45:41,384] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3152.27 | bwd_microstep: 3269.26 | bwd_inner_microstep: 2793.95 | bwd_allreduce_microstep: 475.24 | step_microstep: 90.95
+nid003877: [2024-11-12 13:45:41,390] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.53s, TFLOPs: 2.23, Samples/sec: 0.31, Time/seq 3.26s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 28, Rank: 2, loss = 2.9380390644073486
+nid003877: Epoch: 0, Step: 28, Rank: 3, loss = 2.957327127456665
+nid003824: Epoch: 0, Step: 28, Rank: 6, loss = 2.5023534297943115
+nid003877: Epoch: 0, Step: 28, Rank: 0, loss = 2.8878984451293945
+nid003824: Epoch: 0, Step: 28, Rank: 7, loss = 3.121675729751587
+nid003877: Epoch: 0, Step: 28, Rank: 1, loss = 3.2269842624664307
+nid003824: Epoch: 0, Step: 28, Rank: 4, loss = 2.275092124938965
+nid003824: Epoch: 0, Step: 28, Rank: 5, loss = 3.923837661743164
+nid003877: [2024-11-12 13:45:47,921] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.87
+nid003877: [2024-11-12 13:45:47,925] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3186.32 | bwd_microstep: 3246.66 | bwd_inner_microstep: 2711.27 | bwd_allreduce_microstep: 535.31 | step_microstep: 92.39
+nid003877: [2024-11-12 13:45:47,931] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.54s, TFLOPs: 2.22, Samples/sec: 0.31, Time/seq 3.27s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 29, Rank: 3, loss = 3.050494909286499
+nid003877: Epoch: 0, Step: 29, Rank: 0, loss = 2.952709197998047
+nid003824: Epoch: 0, Step: 29, Rank: 4, loss = 2.7749505043029785
+nid003877: Epoch: 0, Step: 29, Rank: 1, loss = 3.6148922443389893
+nid003824: Epoch: 0, Step: 29, Rank: 7, loss = 2.8349978923797607
+nid003877: Epoch: 0, Step: 29, Rank: 2, loss = 3.372229814529419
+nid003824: Epoch: 0, Step: 29, Rank: 5, loss = 2.7820956707000732
+nid003824: Epoch: 0, Step: 29, Rank: 6, loss = 3.348116159439087
+nid003877: [2024-11-12 13:45:54,420] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.97
+nid003877: [2024-11-12 13:45:54,421] [INFO] [logging.py:129:log_dist] [Rank 0] step=30, skipped=21, lr=[9.649941053347872e-06, 9.649941053347872e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:45:54,421] [INFO] [timer.py:264:stop] epoch=0/micro_step=30/global_step=30, RunningAvgSamplesPerSec=2.453814469984105, CurrSamplesPerSec=2.4662436969629735, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:45:54,425] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3105.49 | bwd_microstep: 3288.27 | bwd_inner_microstep: 2759.87 | bwd_allreduce_microstep: 528.31 | step_microstep: 90.82
+nid003877: [2024-11-12 13:45:54,430] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.50s, TFLOPs: 2.24, Samples/sec: 0.31, Time/seq 3.25s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 30, Rank: 7, loss = 3.066718339920044
+nid003824: Epoch: 0, Step: 30, Rank: 4, loss = 2.297353982925415
+nid003824: Epoch: 0, Step: 30, Rank: 5, loss = 2.7006826400756836
+nid003824: Epoch: 0, Step: 30, Rank: 6, loss = 2.751891851425171
+nid003877: Epoch: 0, Step: 30, Rank: 3, loss = 3.242918014526367
+nid003877: Epoch: 0, Step: 30, Rank: 0, loss = 3.389996290206909
+nid003877: Epoch: 0, Step: 30, Rank: 1, loss = 3.586829662322998
+nid003877: Epoch: 0, Step: 30, Rank: 2, loss = 3.060398578643799
+nid003877: [2024-11-12 13:46:00,919] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 43.00
+nid003877: [2024-11-12 13:46:00,923] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3144.28 | bwd_microstep: 3250.33 | bwd_inner_microstep: 2697.31 | bwd_allreduce_microstep: 552.94 | step_microstep: 89.36
+nid003877: [2024-11-12 13:46:00,927] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.50s, TFLOPs: 2.24, Samples/sec: 0.31, Time/seq 3.25s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 31, Rank: 3, loss = 2.862689733505249
+nid003877: Epoch: 0, Step: 31, Rank: 2, loss = 3.6945598125457764
+nid003824: Epoch: 0, Step: 31, Rank: 7, loss = 3.5124447345733643
+nid003877: Epoch: 0, Step: 31, Rank: 1, loss = 3.0221736431121826
+nid003824: Epoch: 0, Step: 31, Rank: 6, loss = 2.731673002243042
+nid003877: Epoch: 0, Step: 31, Rank: 0, loss = 2.8987250328063965
+nid003824: Epoch: 0, Step: 31, Rank: 5, loss = 3.155299425125122
+nid003824: Epoch: 0, Step: 31, Rank: 4, loss = 3.6027050018310547
+nid003877: [2024-11-12 13:46:07,430] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.96
+nid003877: [2024-11-12 13:46:07,434] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3129.81 | bwd_microstep: 3276.18 | bwd_inner_microstep: 2698.73 | bwd_allreduce_microstep: 577.34 | step_microstep: 89.36
+nid003877: [2024-11-12 13:46:07,439] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.51s, TFLOPs: 2.24, Samples/sec: 0.31, Time/seq 3.26s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 32, Rank: 7, loss = 2.46610426902771
+nid003824: Epoch: 0, Step: 32, Rank: 6, loss = 3.3909473419189453
+nid003877: Epoch: 0, Step: 32, Rank: 0, loss = 2.792821168899536
+nid003824: Epoch: 0, Step: 32, Rank: 5, loss = 2.7235682010650635
+nid003877: Epoch: 0, Step: 32, Rank: 3, loss = 2.181647777557373
+nid003824: Epoch: 0, Step: 32, Rank: 4, loss = 2.3280506134033203
+nid003877: Epoch: 0, Step: 32, Rank: 1, loss = 2.5329740047454834
+nid003877: Epoch: 0, Step: 32, Rank: 2, loss = 2.7956719398498535
+nid003877: [2024-11-12 13:46:14,031] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.92
+nid003877: [2024-11-12 13:46:14,035] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3150.56 | bwd_microstep: 3345.00 | bwd_inner_microstep: 2726.94 | bwd_allreduce_microstep: 617.93 | step_microstep: 90.10
+nid003877: [2024-11-12 13:46:14,040] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.60s, TFLOPs: 2.20, Samples/sec: 0.30, Time/seq 3.30s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 33, Rank: 3, loss = 2.536958694458008
+nid003877: Epoch: 0, Step: 33, Rank: 0, loss = 2.784520387649536
+nid003877: Epoch: 0, Step: 33, Rank: 1, loss = 3.8398075103759766
+nid003824: Epoch: 0, Step: 33, Rank: 4, loss = 2.7394285202026367
+nid003877: Epoch: 0, Step: 33, Rank: 2, loss = 2.2770984172821045
+nid003824: Epoch: 0, Step: 33, Rank: 5, loss = 2.7564220428466797Epoch: 0, Step: 33, Rank: 7, loss = 2.5146970748901367
+nid003824: 
+nid003824: Epoch: 0, Step: 33, Rank: 6, loss = 2.202885150909424
+nid003877: [2024-11-12 13:46:20,628] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.94
+nid003877: [2024-11-12 13:46:20,632] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3119.03 | bwd_microstep: 3370.32 | bwd_inner_microstep: 2758.67 | bwd_allreduce_microstep: 611.53 | step_microstep: 94.41
+nid003877: [2024-11-12 13:46:20,637] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.60s, TFLOPs: 2.21, Samples/sec: 0.30, Time/seq 3.30s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 34, Rank: 6, loss = 2.345329523086548
+nid003877: Epoch: 0, Step: 34, Rank: 3, loss = 2.9210362434387207
+nid003824: Epoch: 0, Step: 34, Rank: 7, loss = 3.4760475158691406
+nid003877: Epoch: 0, Step: 34, Rank: 2, loss = 2.012606620788574
+nid003824: Epoch: 0, Step: 34, Rank: 5, loss = 2.292119026184082
+nid003877: Epoch: 0, Step: 34, Rank: 1, loss = 3.5233612060546875
+nid003824: Epoch: 0, Step: 34, Rank: 4, loss = 2.499415874481201
+nid003877: Epoch: 0, Step: 34, Rank: 0, loss = 2.3783209323883057
+nid003877: [2024-11-12 13:46:27,378] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.91
+nid003877: [2024-11-12 13:46:27,383] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3225.18 | bwd_microstep: 3412.74 | bwd_inner_microstep: 2834.34 | bwd_allreduce_microstep: 578.32 | step_microstep: 93.13
+nid003877: [2024-11-12 13:46:27,388] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.75s, TFLOPs: 2.16, Samples/sec: 0.30, Time/seq 3.37s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 35, Rank: 6, loss = 2.8046603202819824
+nid003824: Epoch: 0, Step: 35, Rank: 7, loss = 2.036757707595825
+nid003824: Epoch: 0, Step: 35, Rank: 4, loss = 2.3808135986328125
+nid003877: Epoch: 0, Step: 35, Rank: 2, loss = 2.3215930461883545
+nid003824: Epoch: 0, Step: 35, Rank: 5, loss = 2.736553430557251
+nid003877: Epoch: 0, Step: 35, Rank: 3, loss = 2.548616886138916
+nid003877: Epoch: 0, Step: 35, Rank: 0, loss = 2.4305002689361572
+nid003877: Epoch: 0, Step: 35, Rank: 1, loss = 2.2566280364990234
+nid003877: [2024-11-12 13:46:34,087] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.91
+nid003877: [2024-11-12 13:46:34,091] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3155.89 | bwd_microstep: 3443.43 | bwd_inner_microstep: 2897.94 | bwd_allreduce_microstep: 545.40 | step_microstep: 92.60
+nid003877: [2024-11-12 13:46:34,096] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.71s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 36, Rank: 3, loss = 2.818511486053467
+nid003877: Epoch: 0, Step: 36, Rank: 0, loss = 2.3420469760894775
+nid003877: Epoch: 0, Step: 36, Rank: 1, loss = 2.4395837783813477
+nid003824: Epoch: 0, Step: 36, Rank: 7, loss = 2.3715171813964844
+nid003824: Epoch: 0, Step: 36, Rank: 6, loss = 2.582040548324585
+nid003877: Epoch: 0, Step: 36, Rank: 2, loss = 2.700352668762207
+nid003824: Epoch: 0, Step: 36, Rank: 5, loss = 2.7277257442474365
+nid003824: Epoch: 0, Step: 36, Rank: 4, loss = 2.574758291244507
+nid003877: [2024-11-12 13:46:40,874] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.85
+nid003877: [2024-11-12 13:46:40,878] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3220.14 | bwd_microstep: 3458.87 | bwd_inner_microstep: 2921.89 | bwd_allreduce_microstep: 536.89 | step_microstep: 94.71
+nid003877: [2024-11-12 13:46:40,882] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.79s, TFLOPs: 2.14, Samples/sec: 0.29, Time/seq 3.39s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 37, Rank: 3, loss = 3.0612034797668457
+nid003877: Epoch: 0, Step: 37, Rank: 0, loss = 2.2458841800689697
+nid003877: Epoch: 0, Step: 37, Rank: 2, loss = 2.221043109893799
+nid003824: Epoch: 0, Step: 37, Rank: 7, loss = 2.217642068862915
+nid003877: Epoch: 0, Step: 37, Rank: 1, loss = 2.7746365070343018
+nid003824: Epoch: 0, Step: 37, Rank: 6, loss = 1.925506830215454
+nid003824: Epoch: 0, Step: 37, Rank: 5, loss = 1.8069367408752441
+nid003824: Epoch: 0, Step: 37, Rank: 4, loss = 2.290081739425659
+nid003877: [2024-11-12 13:46:47,505] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.87
+nid003877: [2024-11-12 13:46:47,509] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3173.14 | bwd_microstep: 3355.58 | bwd_inner_microstep: 2820.36 | bwd_allreduce_microstep: 535.08 | step_microstep: 89.01
+nid003877: [2024-11-12 13:46:47,514] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.63s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.32s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 38, Rank: 0, loss = 1.9475501775741577
+nid003877: Epoch: 0, Step: 38, Rank: 3, loss = 2.0760905742645264
+nid003824: Epoch: 0, Step: 38, Rank: 4, loss = 2.2283406257629395
+nid003824: Epoch: 0, Step: 38, Rank: 7, loss = 3.323376417160034
+nid003824: Epoch: 0, Step: 38, Rank: 5, loss = 2.39371919631958
+nid003824: Epoch: 0, Step: 38, Rank: 6, loss = 2.7198362350463867
+nid003877: Epoch: 0, Step: 38, Rank: 1, loss = 2.1215481758117676
+nid003877: Epoch: 0, Step: 38, Rank: 2, loss = 3.0252525806427
+nid003877: [2024-11-12 13:46:54,242] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.95
+nid003877: [2024-11-12 13:46:54,246] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3181.01 | bwd_microstep: 3451.18 | bwd_inner_microstep: 2930.19 | bwd_allreduce_microstep: 520.91 | step_microstep: 90.48
+nid003877: [2024-11-12 13:46:54,251] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.74s, TFLOPs: 2.16, Samples/sec: 0.30, Time/seq 3.37s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 39, Rank: 3, loss = 2.380514621734619
+nid003877: Epoch: 0, Step: 39, Rank: 2, loss = 2.925034761428833
+nid003877: Epoch: 0, Step: 39, Rank: 1, loss = 1.8385074138641357
+nid003824: Epoch: 0, Step: 39, Rank: 7, loss = 2.554161548614502
+nid003877: Epoch: 0, Step: 39, Rank: 0, loss = 2.5859122276306152
+nid003824: Epoch: 0, Step: 39, Rank: 6, loss = 3.2266180515289307
+nid003824: Epoch: 0, Step: 39, Rank: 5, loss = 2.300835132598877
+nid003824: Epoch: 0, Step: 39, Rank: 4, loss = 2.6462066173553467
+nid003877: [2024-11-12 13:47:00,893] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.89
+nid003877: [2024-11-12 13:47:00,894] [INFO] [logging.py:129:log_dist] [Rank 0] step=40, skipped=21, lr=[9.649737288992102e-06, 9.649737288992102e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:47:00,894] [INFO] [timer.py:264:stop] epoch=0/micro_step=40/global_step=40, RunningAvgSamplesPerSec=2.4423722956482052, CurrSamplesPerSec=2.409283208044415, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:47:00,898] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3249.43 | bwd_microstep: 3297.15 | bwd_inner_microstep: 2779.25 | bwd_allreduce_microstep: 517.82 | step_microstep: 89.16
+nid003877: [2024-11-12 13:47:00,903] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.65s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.33s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 40, Rank: 7, loss = 2.3555142879486084
+nid003824: Epoch: 0, Step: 40, Rank: 4, loss = 2.209616184234619
+nid003824: Epoch: 0, Step: 40, Rank: 5, loss = 2.445237398147583
+nid003877: Epoch: 0, Step: 40, Rank: 0, loss = 2.5406343936920166
+nid003824: Epoch: 0, Step: 40, Rank: 6, loss = 2.0457050800323486
+nid003877: Epoch: 0, Step: 40, Rank: 3, loss = 2.85154390335083
+nid003877: Epoch: 0, Step: 40, Rank: 1, loss = 3.1050355434417725
+nid003877: Epoch: 0, Step: 40, Rank: 2, loss = 2.2300617694854736
+nid003877: [2024-11-12 13:47:07,601] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.99
+nid003877: [2024-11-12 13:47:07,605] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3252.60 | bwd_microstep: 3350.28 | bwd_inner_microstep: 2747.75 | bwd_allreduce_microstep: 602.41 | step_microstep: 88.28
+nid003877: [2024-11-12 13:47:07,610] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.71s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 41, Rank: 6, loss = 2.8226158618927
+nid003824: Epoch: 0, Step: 41, Rank: 7, loss = 2.6597776412963867
+nid003877: Epoch: 0, Step: 41, Rank: 3, loss = 2.5578625202178955
+nid003824: Epoch: 0, Step: 41, Rank: 4, loss = 2.2840874195098877
+nid003877: Epoch: 0, Step: 41, Rank: 0, loss = 2.8211944103240967
+nid003824: Epoch: 0, Step: 41, Rank: 5, loss = 2.139669418334961
+nid003877: Epoch: 0, Step: 41, Rank: 1, loss = 3.1749653816223145
+nid003877: Epoch: 0, Step: 41, Rank: 2, loss = 2.29295015335083
+nid003877: [2024-11-12 13:47:14,341] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.84
+nid003877: [2024-11-12 13:47:14,346] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3247.99 | bwd_microstep: 3389.19 | bwd_inner_microstep: 2748.99 | bwd_allreduce_microstep: 640.12 | step_microstep: 86.78
+nid003877: [2024-11-12 13:47:14,351] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.74s, TFLOPs: 2.16, Samples/sec: 0.30, Time/seq 3.37s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 42, Rank: 6, loss = 2.0938804149627686
+nid003824: Epoch: 0, Step: 42, Rank: 7, loss = 1.8219435214996338
+nid003877: Epoch: 0, Step: 42, Rank: 0, loss = 2.3352625370025635
+nid003824: Epoch: 0, Step: 42, Rank: 4, loss = 2.4486193656921387
+nid003877: Epoch: 0, Step: 42, Rank: 3, loss = 2.2086825370788574
+nid003824: Epoch: 0, Step: 42, Rank: 5, loss = 2.1895687580108643
+nid003877: Epoch: 0, Step: 42, Rank: 2, loss = 2.8614132404327393
+nid003877: Epoch: 0, Step: 42, Rank: 1, loss = 1.9914636611938477
+nid003877: [2024-11-12 13:47:21,018] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.95
+nid003877: [2024-11-12 13:47:21,022] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3255.30 | bwd_microstep: 3318.37 | bwd_inner_microstep: 2787.56 | bwd_allreduce_microstep: 530.74 | step_microstep: 87.21
+nid003877: [2024-11-12 13:47:21,029] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.68s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 43, Rank: 4, loss = 2.2237837314605713
+nid003824: Epoch: 0, Step: 43, Rank: 7, loss = 1.9842442274093628
+nid003824: Epoch: 0, Step: 43, Rank: 5, loss = 2.229534864425659
+nid003877: Epoch: 0, Step: 43, Rank: 0, loss = 2.3792216777801514
+nid003824: Epoch: 0, Step: 43, Rank: 6, loss = 2.2207179069519043
+nid003877: Epoch: 0, Step: 43, Rank: 3, loss = 1.9458307027816772
+nid003877: Epoch: 0, Step: 43, Rank: 1, loss = 1.9843811988830566
+nid003877: Epoch: 0, Step: 43, Rank: 2, loss = 1.7613848447799683
+nid003877: [2024-11-12 13:47:27,711] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:47:27,715] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3229.38 | bwd_microstep: 3359.44 | bwd_inner_microstep: 2733.11 | bwd_allreduce_microstep: 626.20 | step_microstep: 87.12
+nid003877: [2024-11-12 13:47:27,721] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.69s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 44, Rank: 1, loss = 2.030535936355591
+nid003824: Epoch: 0, Step: 44, Rank: 5, loss = 2.5248517990112305
+nid003877: Epoch: 0, Step: 44, Rank: 0, loss = 1.7546015977859497
+nid003824: Epoch: 0, Step: 44, Rank: 4, loss = 1.805137276649475
+nid003877: Epoch: 0, Step: 44, Rank: 2, loss = 2.0162513256073
+nid003824: Epoch: 0, Step: 44, Rank: 6, loss = 1.4078943729400635
+nid003877: Epoch: 0, Step: 44, Rank: 3, loss = 3.095341920852661
+nid003824: Epoch: 0, Step: 44, Rank: 7, loss = 2.0755038261413574
+nid003877: [2024-11-12 13:47:34,548] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.83
+nid003877: [2024-11-12 13:47:34,552] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3266.50 | bwd_microstep: 3467.89 | bwd_inner_microstep: 2930.91 | bwd_allreduce_microstep: 536.83 | step_microstep: 87.52
+nid003877: [2024-11-12 13:47:34,558] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.84s, TFLOPs: 2.13, Samples/sec: 0.29, Time/seq 3.42s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 45, Rank: 4, loss = 2.5048410892486572
+nid003824: Epoch: 0, Step: 45, Rank: 7, loss = 2.407827138900757
+nid003824: Epoch: 0, Step: 45, Rank: 5, loss = 2.6169941425323486
+nid003824: Epoch: 0, Step: 45, Rank: 6, loss = 2.2663731575012207
+nid003877: Epoch: 0, Step: 45, Rank: 1, loss = 2.1236562728881836
+nid003877: Epoch: 0, Step: 45, Rank: 3, loss = 2.768061637878418
+nid003877: Epoch: 0, Step: 45, Rank: 0, loss = 1.935403823852539
+nid003877: Epoch: 0, Step: 45, Rank: 2, loss = 3.406754970550537
+nid003877: [2024-11-12 13:47:41,265] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.93
+nid003877: [2024-11-12 13:47:41,269] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3234.82 | bwd_microstep: 3379.39 | bwd_inner_microstep: 2802.48 | bwd_allreduce_microstep: 576.84 | step_microstep: 87.72
+nid003877: [2024-11-12 13:47:41,274] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.72s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.36s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 46, Rank: 4, loss = 2.7492570877075195
+nid003824: Epoch: 0, Step: 46, Rank: 7, loss = 2.07582688331604
+nid003877: Epoch: 0, Step: 46, Rank: 0, loss = 3.434170722961426
+nid003824: Epoch: 0, Step: 46, Rank: 6, loss = 2.5418405532836914
+nid003877: Epoch: 0, Step: 46, Rank: 3, loss = 1.8879566192626953
+nid003824: Epoch: 0, Step: 46, Rank: 5, loss = 2.074369430541992
+nid003877: Epoch: 0, Step: 46, Rank: 1, loss = 2.5880842208862305
+nid003877: Epoch: 0, Step: 46, Rank: 2, loss = 2.3276846408843994
+nid003877: [2024-11-12 13:47:48,172] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.87
+nid003877: [2024-11-12 13:47:48,176] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3250.46 | bwd_microstep: 3546.15 | bwd_inner_microstep: 2940.10 | bwd_allreduce_microstep: 605.93 | step_microstep: 94.95
+nid003877: [2024-11-12 13:47:48,182] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.91s, TFLOPs: 2.11, Samples/sec: 0.29, Time/seq 3.45s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 47, Rank: 4, loss = 2.3292477130889893
+nid003824: Epoch: 0, Step: 47, Rank: 5, loss = 1.978113055229187
+nid003824: Epoch: 0, Step: 47, Rank: 7, loss = 2.6794888973236084
+nid003877: Epoch: 0, Step: 47, Rank: 0, loss = 2.7485744953155518
+nid003824: Epoch: 0, Step: 47, Rank: 6, loss = 2.188925266265869
+nid003877: Epoch: 0, Step: 47, Rank: 1, loss = 2.6104843616485596
+nid003877: Epoch: 0, Step: 47, Rank: 2, loss = 2.460770845413208
+nid003877: Epoch: 0, Step: 47, Rank: 3, loss = 1.9654523134231567
+nid003877: [2024-11-12 13:47:54,958] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:47:54,962] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3243.97 | bwd_microstep: 3438.43 | bwd_inner_microstep: 2821.69 | bwd_allreduce_microstep: 616.63 | step_microstep: 88.52
+nid003877: [2024-11-12 13:47:54,967] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.78s, TFLOPs: 2.14, Samples/sec: 0.29, Time/seq 3.39s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 48, Rank: 0, loss = 1.7107280492782593
+nid003877: Epoch: 0, Step: 48, Rank: 3, loss = 2.1089401245117188
+nid003877: Epoch: 0, Step: 48, Rank: 1, loss = 2.388144016265869
+nid003824: Epoch: 0, Step: 48, Rank: 4, loss = 2.142338991165161
+nid003877: Epoch: 0, Step: 48, Rank: 2, loss = 2.127532482147217
+nid003824: Epoch: 0, Step: 48, Rank: 7, loss = 1.8362782001495361
+nid003824: Epoch: 0, Step: 48, Rank: 5, loss = 2.563555955886841
+nid003824: Epoch: 0, Step: 48, Rank: 6, loss = 2.4481112957000732
+nid003877: [2024-11-12 13:48:01,559] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:48:01,563] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3195.77 | bwd_microstep: 3301.15 | bwd_inner_microstep: 2863.88 | bwd_allreduce_microstep: 437.17 | step_microstep: 90.89
+nid003877: [2024-11-12 13:48:01,568] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.60s, TFLOPs: 2.20, Samples/sec: 0.30, Time/seq 3.30s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 49, Rank: 4, loss = 2.597414255142212
+nid003824: Epoch: 0, Step: 49, Rank: 7, loss = 2.550121784210205
+nid003824: Epoch: 0, Step: 49, Rank: 5, loss = 2.7330267429351807
+nid003877: Epoch: 0, Step: 49, Rank: 0, loss = 2.366450786590576
+nid003824: Epoch: 0, Step: 49, Rank: 6, loss = 1.9487709999084473
+nid003877: Epoch: 0, Step: 49, Rank: 3, loss = 2.165015697479248
+nid003877: Epoch: 0, Step: 49, Rank: 1, loss = 2.1878700256347656
+nid003877: Epoch: 0, Step: 49, Rank: 2, loss = 2.6685853004455566
+nid003877: [2024-11-12 13:48:08,365] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.94
+nid003877: [2024-11-12 13:48:08,365] [INFO] [logging.py:129:log_dist] [Rank 0] step=50, skipped=21, lr=[9.649387985341377e-06, 9.649387985341377e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:48:08,366] [INFO] [timer.py:264:stop] epoch=0/micro_step=50/global_step=50, RunningAvgSamplesPerSec=2.4280888998448678, CurrSamplesPerSec=2.3547010974570886, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:48:08,369] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3302.99 | bwd_microstep: 3398.85 | bwd_inner_microstep: 2832.95 | bwd_allreduce_microstep: 565.82 | step_microstep: 89.24
+nid003877: [2024-11-12 13:48:08,375] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.81s, TFLOPs: 2.14, Samples/sec: 0.29, Time/seq 3.40s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 50, Rank: 4, loss = 1.9944102764129639
+nid003824: Epoch: 0, Step: 50, Rank: 7, loss = 2.6359102725982666
+nid003824: Epoch: 0, Step: 50, Rank: 5, loss = 2.155252695083618
+nid003877: Epoch: 0, Step: 50, Rank: 0, loss = 1.8795158863067627
+nid003877: Epoch: 0, Step: 50, Rank: 3, loss = 2.0521249771118164
+nid003877: Epoch: 0, Step: 50, Rank: 1, loss = 2.556030511856079
+nid003824: Epoch: 0, Step: 50, Rank: 6, loss = 2.234248399734497
+nid003877: Epoch: 0, Step: 50, Rank: 2, loss = 1.7507432699203491
+nid003877: [2024-11-12 13:48:15,087] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.81
+nid003877: [2024-11-12 13:48:15,091] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3211.35 | bwd_microstep: 3407.19 | bwd_inner_microstep: 2842.83 | bwd_allreduce_microstep: 564.29 | step_microstep: 88.61
+nid003877: [2024-11-12 13:48:15,097] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.72s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.36s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 51, Rank: 7, loss = 2.126377582550049
+nid003824: Epoch: 0, Step: 51, Rank: 4, loss = 2.1628153324127197
+nid003824: Epoch: 0, Step: 51, Rank: 5, loss = 1.9731173515319824
+nid003877: Epoch: 0, Step: 51, Rank: 0, loss = 2.2511775493621826
+nid003824: Epoch: 0, Step: 51, Rank: 6, loss = 1.9673504829406738
+nid003877: Epoch: 0, Step: 51, Rank: 3, loss = 2.741001844406128
+nid003877: Epoch: 0, Step: 51, Rank: 1, loss = 1.87383234500885
+nid003877: Epoch: 0, Step: 51, Rank: 2, loss = 2.6521623134613037
+nid003877: [2024-11-12 13:48:21,798] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.92
+nid003877: [2024-11-12 13:48:21,803] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3305.97 | bwd_microstep: 3298.32 | bwd_inner_microstep: 2875.10 | bwd_allreduce_microstep: 423.15 | step_microstep: 91.51
+nid003877: [2024-11-12 13:48:21,808] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.71s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 52, Rank: 7, loss = 2.6646223068237305
+nid003824: Epoch: 0, Step: 52, Rank: 6, loss = 2.1450822353363037
+nid003824: Epoch: 0, Step: 52, Rank: 4, loss = 1.8716778755187988
+nid003877: Epoch: 0, Step: 52, Rank: 0, loss = 2.4993197917938232
+nid003824: Epoch: 0, Step: 52, Rank: 5, loss = 2.1170716285705566
+nid003877: Epoch: 0, Step: 52, Rank: 1, loss = 1.637038230895996
+nid003877: Epoch: 0, Step: 52, Rank: 3, loss = 2.1992154121398926
+nid003877: Epoch: 0, Step: 52, Rank: 2, loss = 2.313685178756714
+nid003877: [2024-11-12 13:48:28,626] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.83
+nid003877: [2024-11-12 13:48:28,630] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3232.49 | bwd_microstep: 3491.41 | bwd_inner_microstep: 2890.41 | bwd_allreduce_microstep: 600.88 | step_microstep: 88.03
+nid003877: [2024-11-12 13:48:28,635] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.83s, TFLOPs: 2.13, Samples/sec: 0.29, Time/seq 3.41s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 53, Rank: 7, loss = 1.6389904022216797
+nid003824: Epoch: 0, Step: 53, Rank: 4, loss = 1.8714549541473389
+nid003824: Epoch: 0, Step: 53, Rank: 6, loss = 2.6991939544677734
+nid003877: Epoch: 0, Step: 53, Rank: 2, loss = 2.706162929534912
+nid003824: Epoch: 0, Step: 53, Rank: 5, loss = 1.9718960523605347
+nid003877: Epoch: 0, Step: 53, Rank: 0, loss = 2.059835433959961
+nid003877: Epoch: 0, Step: 53, Rank: 3, loss = 2.262840747833252
+nid003877: Epoch: 0, Step: 53, Rank: 1, loss = 1.9440250396728516
+nid003877: [2024-11-12 13:48:35,313] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.89
+nid003877: [2024-11-12 13:48:35,317] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3213.40 | bwd_microstep: 3369.87 | bwd_inner_microstep: 2912.14 | bwd_allreduce_microstep: 457.63 | step_microstep: 87.51
+nid003877: [2024-11-12 13:48:35,322] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.69s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 54, Rank: 0, loss = 1.9187777042388916
+nid003877: Epoch: 0, Step: 54, Rank: 3, loss = 2.948869228363037
+nid003877: Epoch: 0, Step: 54, Rank: 1, loss = 2.179699659347534
+nid003824: Epoch: 0, Step: 54, Rank: 7, loss = 1.9521657228469849
+nid003877: Epoch: 0, Step: 54, Rank: 2, loss = 2.1538960933685303
+nid003824: Epoch: 0, Step: 54, Rank: 4, loss = 2.785141706466675
+nid003824: Epoch: 0, Step: 54, Rank: 5, loss = 1.9756693840026855
+nid003824: Epoch: 0, Step: 54, Rank: 6, loss = 2.252826690673828
+nid003877: [2024-11-12 13:48:41,989] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.94
+nid003877: [2024-11-12 13:48:41,992] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3155.02 | bwd_microstep: 3417.88 | bwd_inner_microstep: 2925.35 | bwd_allreduce_microstep: 492.45 | step_microstep: 89.49
+nid003877: [2024-11-12 13:48:41,997] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.67s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 55, Rank: 7, loss = 1.874321699142456
+nid003824: Epoch: 0, Step: 55, Rank: 6, loss = 1.6425360441207886
+nid003877: Epoch: 0, Step: 55, Rank: 2, loss = 2.155057668685913
+nid003824: Epoch: 0, Step: 55, Rank: 4, loss = 2.2630093097686768
+nid003877: Epoch: 0, Step: 55, Rank: 3, loss = 1.6471492052078247
+nid003824: Epoch: 0, Step: 55, Rank: 5, loss = 1.8746981620788574
+nid003877: Epoch: 0, Step: 55, Rank: 0, loss = 1.9714751243591309
+nid003877: Epoch: 0, Step: 55, Rank: 1, loss = 3.0675387382507324
+nid003877: [2024-11-12 13:48:48,540] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.76
+nid003877: [2024-11-12 13:48:48,543] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3196.06 | bwd_microstep: 3245.91 | bwd_inner_microstep: 2786.64 | bwd_allreduce_microstep: 459.20 | step_microstep: 91.11
+nid003877: [2024-11-12 13:48:48,548] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.55s, TFLOPs: 2.22, Samples/sec: 0.31, Time/seq 3.27s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 56, Rank: 0, loss = 2.0054211616516113
+nid003824: Epoch: 0, Step: 56, Rank: 7, loss = 2.7467803955078125
+nid003824: Epoch: 0, Step: 56, Rank: 6, loss = 1.9722801446914673
+nid003824: Epoch: 0, Step: 56, Rank: 4, loss = 2.0396015644073486
+nid003824: Epoch: 0, Step: 56, Rank: 5, loss = 2.785956382751465
+nid003877: Epoch: 0, Step: 56, Rank: 3, loss = 2.5527920722961426
+nid003877: Epoch: 0, Step: 56, Rank: 1, loss = 2.4101030826568604
+nid003877: Epoch: 0, Step: 56, Rank: 2, loss = 2.3410189151763916
+nid003877: [2024-11-12 13:48:55,175] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.85
+nid003877: [2024-11-12 13:48:55,179] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3165.01 | bwd_microstep: 3368.22 | bwd_inner_microstep: 2851.32 | bwd_allreduce_microstep: 516.82 | step_microstep: 90.19
+nid003877: [2024-11-12 13:48:55,184] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.63s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.32s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 57, Rank: 7, loss = 2.7337706089019775Epoch: 0, Step: 57, Rank: 4, loss = 1.6974666118621826
+nid003824: 
+nid003824: Epoch: 0, Step: 57, Rank: 5, loss = 2.135603427886963
+nid003877: Epoch: 0, Step: 57, Rank: 0, loss = 2.7544374465942383
+nid003877: Epoch: 0, Step: 57, Rank: 3, loss = 2.087970733642578
+nid003824: Epoch: 0, Step: 57, Rank: 6, loss = 2.5318851470947266
+nid003877: Epoch: 0, Step: 57, Rank: 1, loss = 2.1733663082122803
+nid003877: Epoch: 0, Step: 57, Rank: 2, loss = 2.759230613708496
+nid003877: [2024-11-12 13:49:01,878] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.78
+nid003877: [2024-11-12 13:49:01,881] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3208.30 | bwd_microstep: 3392.52 | bwd_inner_microstep: 2765.34 | bwd_allreduce_microstep: 627.05 | step_microstep: 87.09
+nid003877: [2024-11-12 13:49:01,887] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.70s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 58, Rank: 4, loss = 2.3232617378234863
+nid003824: Epoch: 0, Step: 58, Rank: 7, loss = 2.3757500648498535
+nid003824: Epoch: 0, Step: 58, Rank: 5, loss = 2.3206582069396973
+nid003877: Epoch: 0, Step: 58, Rank: 0, loss = 2.749748945236206
+nid003824: Epoch: 0, Step: 58, Rank: 6, loss = 1.7124252319335938
+nid003877: Epoch: 0, Step: 58, Rank: 1, loss = 1.9583055973052979
+nid003877: Epoch: 0, Step: 58, Rank: 3, loss = 2.355290412902832
+nid003877: Epoch: 0, Step: 58, Rank: 2, loss = 1.9557223320007324
+nid003877: [2024-11-12 13:49:08,559] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.81
+nid003877: [2024-11-12 13:49:08,563] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3180.42 | bwd_microstep: 3397.72 | bwd_inner_microstep: 2782.38 | bwd_allreduce_microstep: 615.23 | step_microstep: 88.17
+nid003877: [2024-11-12 13:49:08,568] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.68s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 59, Rank: 0, loss = 2.301637649536133
+nid003824: Epoch: 0, Step: 59, Rank: 7, loss = 1.8945213556289673
+nid003877: Epoch: 0, Step: 59, Rank: 3, loss = 2.0216591358184814
+nid003824: Epoch: 0, Step: 59, Rank: 5, loss = 1.8876944780349731
+nid003877: Epoch: 0, Step: 59, Rank: 1, loss = 2.4180173873901367
+nid003824: Epoch: 0, Step: 59, Rank: 4, loss = 1.996274709701538
+nid003877: Epoch: 0, Step: 59, Rank: 2, loss = 2.099376916885376
+nid003824: Epoch: 0, Step: 59, Rank: 6, loss = 2.2023422718048096
+nid003877: [2024-11-12 13:49:15,268] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.77
+nid003877: [2024-11-12 13:49:15,268] [INFO] [logging.py:129:log_dist] [Rank 0] step=60, skipped=21, lr=[9.648893152932523e-06, 9.648893152932523e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:49:15,268] [INFO] [timer.py:264:stop] epoch=0/micro_step=60/global_step=60, RunningAvgSamplesPerSec=2.422380701109613, CurrSamplesPerSec=2.3885211919054554, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:49:15,272] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3161.78 | bwd_microstep: 3448.16 | bwd_inner_microstep: 2851.61 | bwd_allreduce_microstep: 596.47 | step_microstep: 86.93
+nid003877: [2024-11-12 13:49:15,277] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.71s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 60, Rank: 3, loss = 2.4998068809509277
+nid003877: Epoch: 0, Step: 60, Rank: 0, loss = 1.792858362197876
+nid003877: Epoch: 0, Step: 60, Rank: 1, loss = 2.0538439750671387
+nid003877: Epoch: 0, Step: 60, Rank: 2, loss = 2.197741746902466
+nid003824: Epoch: 0, Step: 60, Rank: 4, loss = 1.847141146659851
+nid003824: Epoch: 0, Step: 60, Rank: 7, loss = 2.0319530963897705
+nid003824: Epoch: 0, Step: 60, Rank: 5, loss = 1.9912680387496948
+nid003824: Epoch: 0, Step: 60, Rank: 6, loss = 2.1398584842681885
+nid003877: [2024-11-12 13:49:22,108] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:49:22,112] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3253.34 | bwd_microstep: 3488.23 | bwd_inner_microstep: 2843.13 | bwd_allreduce_microstep: 644.98 | step_microstep: 86.16
+nid003877: [2024-11-12 13:49:22,117] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.84s, TFLOPs: 2.13, Samples/sec: 0.29, Time/seq 3.42s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 61, Rank: 0, loss = 2.6803627014160156
+nid003877: Epoch: 0, Step: 61, Rank: 3, loss = 2.063058853149414
+nid003824: Epoch: 0, Step: 61, Rank: 4, loss = 1.8604085445404053
+nid003877: Epoch: 0, Step: 61, Rank: 1, loss = 2.3110744953155518
+nid003824: Epoch: 0, Step: 61, Rank: 7, loss = 1.8756579160690308
+nid003877: Epoch: 0, Step: 61, Rank: 2, loss = 2.6460938453674316
+nid003824: Epoch: 0, Step: 61, Rank: 5, loss = 1.7236605882644653
+nid003824: Epoch: 0, Step: 61, Rank: 6, loss = 2.105337381362915
+nid003877: [2024-11-12 13:49:28,769] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.85
+nid003877: [2024-11-12 13:49:28,772] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3147.62 | bwd_microstep: 3409.07 | bwd_inner_microstep: 2810.39 | bwd_allreduce_microstep: 598.57 | step_microstep: 90.95
+nid003877: [2024-11-12 13:49:28,777] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.66s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.33s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 62, Rank: 0, loss = 1.922377109527588
+nid003877: Epoch: 0, Step: 62, Rank: 2, loss = 2.3302383422851562
+nid003877: Epoch: 0, Step: 62, Rank: 1, loss = 2.0305323600769043
+nid003877: Epoch: 0, Step: 62, Rank: 3, loss = 1.6590392589569092
+nid003824: Epoch: 0, Step: 62, Rank: 4, loss = 2.1602718830108643
+nid003824: Epoch: 0, Step: 62, Rank: 5, loss = 2.360133171081543
+nid003824: Epoch: 0, Step: 62, Rank: 6, loss = 1.7849366664886475
+nid003824: Epoch: 0, Step: 62, Rank: 7, loss = 2.030674457550049
+nid003877: [2024-11-12 13:49:35,498] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.84
+nid003877: [2024-11-12 13:49:35,502] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3135.29 | bwd_microstep: 3493.75 | bwd_inner_microstep: 2884.80 | bwd_allreduce_microstep: 608.79 | step_microstep: 87.20
+nid003877: [2024-11-12 13:49:35,508] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.73s, TFLOPs: 2.16, Samples/sec: 0.30, Time/seq 3.36s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 63, Rank: 0, loss = 2.0117762088775635
+nid003877: Epoch: 0, Step: 63, Rank: 3, loss = 1.9607220888137817
+nid003824: Epoch: 0, Step: 63, Rank: 4, loss = 1.7733633518218994
+nid003824: Epoch: 0, Step: 63, Rank: 7, loss = 1.812233805656433
+nid003824: Epoch: 0, Step: 63, Rank: 5, loss = 2.050981044769287
+nid003877: Epoch: 0, Step: 63, Rank: 2, loss = 1.8946853876113892
+nid003824: Epoch: 0, Step: 63, Rank: 6, loss = 1.8436952829360962
+nid003877: Epoch: 0, Step: 63, Rank: 1, loss = 2.3006811141967773
+nid003877: [2024-11-12 13:49:42,276] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.83
+nid003877: [2024-11-12 13:49:42,280] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3167.67 | bwd_microstep: 3508.23 | bwd_inner_microstep: 2870.96 | bwd_allreduce_microstep: 637.10 | step_microstep: 87.69
+nid003877: [2024-11-12 13:49:42,285] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.78s, TFLOPs: 2.15, Samples/sec: 0.30, Time/seq 3.39s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 64, Rank: 6, loss = 2.104613780975342
+nid003824: Epoch: 0, Step: 64, Rank: 7, loss = 2.356661319732666
+nid003824: Epoch: 0, Step: 64, Rank: 4, loss = 1.7018345594406128
+nid003877: Epoch: 0, Step: 64, Rank: 2, loss = 1.9236533641815186
+nid003824: Epoch: 0, Step: 64, Rank: 5, loss = 2.4526844024658203
+nid003877: Epoch: 0, Step: 64, Rank: 0, loss = 2.4734866619110107
+nid003877: Epoch: 0, Step: 64, Rank: 3, loss = 2.4889729022979736
+nid003877: Epoch: 0, Step: 64, Rank: 1, loss = 2.6761152744293213
+nid003877: [2024-11-12 13:49:49,030] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:49:49,035] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3175.40 | bwd_microstep: 3477.74 | bwd_inner_microstep: 2852.36 | bwd_allreduce_microstep: 625.25 | step_microstep: 87.04
+nid003877: [2024-11-12 13:49:49,040] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.75s, TFLOPs: 2.15, Samples/sec: 0.30, Time/seq 3.38s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 65, Rank: 7, loss = 1.5625792741775513
+nid003824: Epoch: 0, Step: 65, Rank: 4, loss = 1.9944063425064087
+nid003824: Epoch: 0, Step: 65, Rank: 5, loss = 1.7850104570388794
+nid003877: Epoch: 0, Step: 65, Rank: 0, loss = 1.7997355461120605
+nid003824: Epoch: 0, Step: 65, Rank: 6, loss = 2.029649257659912
+nid003877: Epoch: 0, Step: 65, Rank: 1, loss = 2.1220524311065674
+nid003877: Epoch: 0, Step: 65, Rank: 3, loss = 1.4400333166122437
+nid003877: Epoch: 0, Step: 65, Rank: 2, loss = 1.9244005680084229
+nid003877: [2024-11-12 13:49:55,736] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.87
+nid003877: [2024-11-12 13:49:55,740] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3179.92 | bwd_microstep: 3418.19 | bwd_inner_microstep: 2824.59 | bwd_allreduce_microstep: 593.51 | step_microstep: 92.60
+nid003877: [2024-11-12 13:49:55,744] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.70s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 66, Rank: 3, loss = 2.714090585708618
+nid003877: Epoch: 0, Step: 66, Rank: 2, loss = 1.5809277296066284
+nid003824: Epoch: 0, Step: 66, Rank: 7, loss = 2.2248384952545166
+nid003877: Epoch: 0, Step: 66, Rank: 1, loss = 1.830732822418213
+nid003824: Epoch: 0, Step: 66, Rank: 6, loss = 2.1627206802368164
+nid003877: Epoch: 0, Step: 66, Rank: 0, loss = 2.8199338912963867
+nid003824: Epoch: 0, Step: 66, Rank: 5, loss = 2.0124456882476807
+nid003824: Epoch: 0, Step: 66, Rank: 4, loss = 2.8230199813842773
+nid003877: [2024-11-12 13:50:02,441] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.95
+nid003877: [2024-11-12 13:50:02,445] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3213.08 | bwd_microstep: 3388.05 | bwd_inner_microstep: 2839.42 | bwd_allreduce_microstep: 548.53 | step_microstep: 88.20
+nid003877: [2024-11-12 13:50:02,450] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.70s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 67, Rank: 7, loss = 2.512888193130493
+nid003824: Epoch: 0, Step: 67, Rank: 6, loss = 2.279172420501709
+nid003877: Epoch: 0, Step: 67, Rank: 2, loss = 2.4741296768188477
+nid003824: Epoch: 0, Step: 67, Rank: 5, loss = 2.1403744220733643
+nid003877: Epoch: 0, Step: 67, Rank: 3, loss = 1.9804695844650269
+nid003824: Epoch: 0, Step: 67, Rank: 4, loss = 2.077995538711548
+nid003877: Epoch: 0, Step: 67, Rank: 1, loss = 2.0294787883758545
+nid003877: Epoch: 0, Step: 67, Rank: 0, loss = 2.209929943084717
+nid003877: [2024-11-12 13:50:09,206] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.92
+nid003877: [2024-11-12 13:50:09,210] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3260.45 | bwd_microstep: 3399.61 | bwd_inner_microstep: 2991.85 | bwd_allreduce_microstep: 407.68 | step_microstep: 87.17
+nid003877: [2024-11-12 13:50:09,215] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.76s, TFLOPs: 2.15, Samples/sec: 0.30, Time/seq 3.38s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 68, Rank: 6, loss = 1.9833015203475952
+nid003824: Epoch: 0, Step: 68, Rank: 7, loss = 2.142005681991577
+nid003877: Epoch: 0, Step: 68, Rank: 0, loss = 2.1013665199279785
+nid003877: Epoch: 0, Step: 68, Rank: 3, loss = 1.9496150016784668
+nid003824: Epoch: 0, Step: 68, Rank: 4, loss = 2.0299956798553467
+nid003824: Epoch: 0, Step: 68, Rank: 5, loss = 1.8454270362854004
+nid003877: Epoch: 0, Step: 68, Rank: 1, loss = 2.1881449222564697
+nid003877: Epoch: 0, Step: 68, Rank: 2, loss = 2.3790321350097656
+nid003877: [2024-11-12 13:50:16,040] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:50:16,044] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3283.62 | bwd_microstep: 3448.74 | bwd_inner_microstep: 2844.91 | bwd_allreduce_microstep: 603.71 | step_microstep: 87.91
+nid003877: [2024-11-12 13:50:16,049] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.83s, TFLOPs: 2.13, Samples/sec: 0.29, Time/seq 3.42s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 69, Rank: 6, loss = 2.0020437240600586
+nid003824: Epoch: 0, Step: 69, Rank: 7, loss = 1.9143811464309692
+nid003877: Epoch: 0, Step: 69, Rank: 2, loss = 2.292263984680176
+nid003877: Epoch: 0, Step: 69, Rank: 3, loss = 2.864652633666992
+nid003877: Epoch: 0, Step: 69, Rank: 0, loss = 1.8827850818634033
+nid003824: Epoch: 0, Step: 69, Rank: 4, loss = 2.189600706100464
+nid003877: Epoch: 0, Step: 69, Rank: 1, loss = 2.5361993312835693
+nid003824: Epoch: 0, Step: 69, Rank: 5, loss = 1.7083162069320679
+nid003877: [2024-11-12 13:50:22,716] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:50:22,716] [INFO] [logging.py:129:log_dist] [Rank 0] step=70, skipped=21, lr=[9.64825280669227e-06, 9.64825280669227e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:50:22,717] [INFO] [timer.py:264:stop] epoch=0/micro_step=70/global_step=70, RunningAvgSamplesPerSec=2.415429793904892, CurrSamplesPerSec=2.4003997347959674, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:50:22,720] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3199.98 | bwd_microstep: 3372.41 | bwd_inner_microstep: 2811.18 | bwd_allreduce_microstep: 561.15 | step_microstep: 91.47
+nid003877: [2024-11-12 13:50:22,726] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.68s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 70, Rank: 6, loss = 2.1735587120056152
+nid003824: Epoch: 0, Step: 70, Rank: 7, loss = 1.9227025508880615
+nid003824: Epoch: 0, Step: 70, Rank: 4, loss = 1.9550776481628418
+nid003877: Epoch: 0, Step: 70, Rank: 2, loss = 1.982639193534851
+nid003824: Epoch: 0, Step: 70, Rank: 5, loss = 1.8953391313552856
+nid003877: Epoch: 0, Step: 70, Rank: 3, loss = 2.400662899017334
+nid003877: Epoch: 0, Step: 70, Rank: 0, loss = 2.270648717880249
+nid003877: Epoch: 0, Step: 70, Rank: 1, loss = 3.1816983222961426
+nid003877: [2024-11-12 13:50:29,392] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.93
+nid003877: [2024-11-12 13:50:29,396] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3170.57 | bwd_microstep: 3399.57 | bwd_inner_microstep: 2838.47 | bwd_allreduce_microstep: 561.02 | step_microstep: 90.75
+nid003877: [2024-11-12 13:50:29,400] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.67s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 71, Rank: 6, loss = 1.409441590309143
+nid003824: Epoch: 0, Step: 71, Rank: 7, loss = 2.24450945854187
+nid003824: Epoch: 0, Step: 71, Rank: 4, loss = 1.8768140077590942
+nid003877: Epoch: 0, Step: 71, Rank: 2, loss = 1.8331725597381592
+nid003824: Epoch: 0, Step: 71, Rank: 5, loss = 1.7819786071777344
+nid003877: Epoch: 0, Step: 71, Rank: 3, loss = 2.185059070587158
+nid003877: Epoch: 0, Step: 71, Rank: 0, loss = 2.091550350189209
+nid003877: Epoch: 0, Step: 71, Rank: 1, loss = 2.162700653076172
+nid003877: [2024-11-12 13:50:36,080] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.86
+nid003877: [2024-11-12 13:50:36,084] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3218.91 | bwd_microstep: 3369.04 | bwd_inner_microstep: 2903.49 | bwd_allreduce_microstep: 465.45 | step_microstep: 86.98
+nid003877: [2024-11-12 13:50:36,089] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.69s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.34s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 72, Rank: 6, loss = 2.197283983230591
+nid003824: Epoch: 0, Step: 72, Rank: 7, loss = 1.8630354404449463
+nid003824: Epoch: 0, Step: 72, Rank: 4, loss = 1.9703065156936646
+nid003877: Epoch: 0, Step: 72, Rank: 2, loss = 1.7521250247955322
+nid003824: Epoch: 0, Step: 72, Rank: 5, loss = 2.2284059524536133
+nid003877: Epoch: 0, Step: 72, Rank: 3, loss = 2.251237154006958
+nid003877: Epoch: 0, Step: 72, Rank: 0, loss = 2.1257572174072266
+nid003877: Epoch: 0, Step: 72, Rank: 1, loss = 2.9534692764282227
+nid003877: [2024-11-12 13:50:42,704] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:50:42,708] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3204.55 | bwd_microstep: 3314.85 | bwd_inner_microstep: 2849.19 | bwd_allreduce_microstep: 465.58 | step_microstep: 89.66
+nid003877: [2024-11-12 13:50:42,713] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.62s, TFLOPs: 2.20, Samples/sec: 0.30, Time/seq 3.31s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 73, Rank: 6, loss = 2.1509509086608887
+nid003824: Epoch: 0, Step: 73, Rank: 7, loss = 2.470424175262451
+nid003877: Epoch: 0, Step: 73, Rank: 2, loss = 2.4594385623931885
+nid003877: Epoch: 0, Step: 73, Rank: 3, loss = 2.281407594680786
+nid003877: Epoch: 0, Step: 73, Rank: 0, loss = 2.057321548461914
+nid003877: Epoch: 0, Step: 73, Rank: 1, loss = 2.404470205307007
+nid003824: Epoch: 0, Step: 73, Rank: 4, loss = 2.594827651977539
+nid003824: Epoch: 0, Step: 73, Rank: 5, loss = 2.0407350063323975
+nid003877: [2024-11-12 13:50:49,346] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:50:49,350] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3248.67 | bwd_microstep: 3292.70 | bwd_inner_microstep: 2837.17 | bwd_allreduce_microstep: 455.44 | step_microstep: 88.05
+nid003877: [2024-11-12 13:50:49,355] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.64s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.32s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 74, Rank: 6, loss = 1.8162871599197388
+nid003824: Epoch: 0, Step: 74, Rank: 7, loss = 1.8087576627731323
+nid003824: Epoch: 0, Step: 74, Rank: 4, loss = 2.3580336570739746
+nid003877: Epoch: 0, Step: 74, Rank: 2, loss = 2.0391745567321777
+nid003824: Epoch: 0, Step: 74, Rank: 5, loss = 2.0067033767700195
+nid003877: Epoch: 0, Step: 74, Rank: 3, loss = 1.8527623414993286
+nid003877: Epoch: 0, Step: 74, Rank: 1, loss = 1.8642421960830688
+nid003877: Epoch: 0, Step: 74, Rank: 0, loss = 2.3974952697753906
+nid003877: [2024-11-12 13:50:55,988] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.85
+nid003877: [2024-11-12 13:50:55,992] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3180.84 | bwd_microstep: 3356.28 | bwd_inner_microstep: 2872.15 | bwd_allreduce_microstep: 484.05 | step_microstep: 89.83
+nid003877: [2024-11-12 13:50:55,998] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.64s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.32s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 75, Rank: 7, loss = 1.7227002382278442
+nid003877: Epoch: 0, Step: 75, Rank: 3, loss = 1.778203010559082
+nid003824: Epoch: 0, Step: 75, Rank: 5, loss = 1.5698436498641968
+nid003877: Epoch: 0, Step: 75, Rank: 2, loss = 1.8234525918960571
+nid003824: Epoch: 0, Step: 75, Rank: 6, loss = 2.3660786151885986
+nid003877: Epoch: 0, Step: 75, Rank: 1, loss = 1.998029351234436
+nid003824: Epoch: 0, Step: 75, Rank: 4, loss = 2.283674955368042
+nid003877: Epoch: 0, Step: 75, Rank: 0, loss = 1.9187992811203003
+nid003877: [2024-11-12 13:51:02,584] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.91
+nid003877: [2024-11-12 13:51:02,587] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3126.78 | bwd_microstep: 3359.00 | bwd_inner_microstep: 2805.29 | bwd_allreduce_microstep: 553.62 | step_microstep: 87.97
+nid003877: [2024-11-12 13:51:02,592] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.59s, TFLOPs: 2.21, Samples/sec: 0.30, Time/seq 3.30s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 76, Rank: 3, loss = 1.625543475151062
+nid003824: Epoch: 0, Step: 76, Rank: 7, loss = 1.9962505102157593
+nid003877: Epoch: 0, Step: 76, Rank: 0, loss = 1.744099736213684
+nid003824: Epoch: 0, Step: 76, Rank: 5, loss = 1.7684030532836914
+nid003877: Epoch: 0, Step: 76, Rank: 1, loss = 2.4126439094543457
+nid003824: Epoch: 0, Step: 76, Rank: 6, loss = 2.761237621307373
+nid003877: Epoch: 0, Step: 76, Rank: 2, loss = 1.0930298566818237
+nid003824: Epoch: 0, Step: 76, Rank: 4, loss = 2.0028672218322754
+nid003877: [2024-11-12 13:51:09,233] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.86
+nid003877: [2024-11-12 13:51:09,236] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3150.01 | bwd_microstep: 3393.99 | bwd_inner_microstep: 2860.65 | bwd_allreduce_microstep: 533.26 | step_microstep: 90.19
+nid003877: [2024-11-12 13:51:09,242] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.65s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.32s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 77, Rank: 2, loss = 2.247023820877075
+nid003877: Epoch: 0, Step: 77, Rank: 3, loss = 1.7613316774368286
+nid003824: Epoch: 0, Step: 77, Rank: 4, loss = 1.998246431350708
+nid003877: Epoch: 0, Step: 77, Rank: 0, loss = 1.8021502494812012
+nid003824: Epoch: 0, Step: 77, Rank: 7, loss = 1.9446345567703247
+nid003877: Epoch: 0, Step: 77, Rank: 1, loss = 1.675646424293518
+nid003824: Epoch: 0, Step: 77, Rank: 5, loss = 2.491281747817993
+nid003824: Epoch: 0, Step: 77, Rank: 6, loss = 1.5974680185317993
+nid003877: [2024-11-12 13:51:15,903] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.81
+nid003877: [2024-11-12 13:51:15,907] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3143.57 | bwd_microstep: 3423.80 | bwd_inner_microstep: 2805.05 | bwd_allreduce_microstep: 618.62 | step_microstep: 87.76
+nid003877: [2024-11-12 13:51:15,912] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.67s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.33s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 78, Rank: 2, loss = 2.4293761253356934
+nid003877: Epoch: 0, Step: 78, Rank: 3, loss = 1.6644201278686523
+nid003877: Epoch: 0, Step: 78, Rank: 0, loss = 2.1261789798736572
+nid003824: Epoch: 0, Step: 78, Rank: 6, loss = 1.3023930788040161
+nid003824: Epoch: 0, Step: 78, Rank: 7, loss = 2.537414312362671
+nid003824: Epoch: 0, Step: 78, Rank: 4, loss = 1.693050503730774
+nid003877: Epoch: 0, Step: 78, Rank: 1, loss = 2.1813225746154785
+nid003824: Epoch: 0, Step: 78, Rank: 5, loss = 1.720266342163086
+nid003877: [2024-11-12 13:51:22,551] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:51:22,555] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3174.51 | bwd_microstep: 3372.95 | bwd_inner_microstep: 2762.37 | bwd_allreduce_microstep: 610.50 | step_microstep: 88.54
+nid003877: [2024-11-12 13:51:22,560] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.65s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.32s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 79, Rank: 7, loss = 2.575115442276001
+nid003824: Epoch: 0, Step: 79, Rank: 6, loss = 2.656421661376953
+nid003824: Epoch: 0, Step: 79, Rank: 5, loss = 2.014540433883667
+nid003824: Epoch: 0, Step: 79, Rank: 4, loss = 2.195638418197632
+nid003877: Epoch: 0, Step: 79, Rank: 3, loss = 2.1871795654296875
+nid003877: Epoch: 0, Step: 79, Rank: 2, loss = 2.213550329208374
+nid003877: Epoch: 0, Step: 79, Rank: 1, loss = 2.5339791774749756
+nid003877: Epoch: 0, Step: 79, Rank: 0, loss = 2.55515718460083
+nid003877: [2024-11-12 13:51:29,395] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.99
+nid003877: [2024-11-12 13:51:29,395] [INFO] [logging.py:129:log_dist] [Rank 0] step=80, skipped=21, lr=[9.64746696593681e-06, 9.64746696593681e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:51:29,396] [INFO] [timer.py:264:stop] epoch=0/micro_step=80/global_step=80, RunningAvgSamplesPerSec=2.413866756126113, CurrSamplesPerSec=2.3412079122757437, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:51:29,399] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3140.88 | bwd_microstep: 3603.59 | bwd_inner_microstep: 2929.63 | bwd_allreduce_microstep: 673.81 | step_microstep: 87.56
+nid003877: [2024-11-12 13:51:29,405] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.84s, TFLOPs: 2.13, Samples/sec: 0.29, Time/seq 3.42s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 80, Rank: 3, loss = 2.3432459831237793
+nid003877: Epoch: 0, Step: 80, Rank: 0, loss = 2.332449197769165
+nid003877: Epoch: 0, Step: 80, Rank: 1, loss = 1.951432228088379
+nid003877: Epoch: 0, Step: 80, Rank: 2, loss = 1.6539877653121948
+nid003824: Epoch: 0, Step: 80, Rank: 7, loss = 2.1018106937408447
+nid003824: Epoch: 0, Step: 80, Rank: 5, loss = 1.7286796569824219
+nid003824: Epoch: 0, Step: 80, Rank: 4, loss = 2.0581347942352295
+nid003824: Epoch: 0, Step: 80, Rank: 6, loss = 1.6414355039596558
+nid003877: [2024-11-12 13:51:36,172] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.87
+nid003877: [2024-11-12 13:51:36,176] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3170.22 | bwd_microstep: 3506.25 | bwd_inner_microstep: 2849.30 | bwd_allreduce_microstep: 656.80 | step_microstep: 87.49
+nid003877: [2024-11-12 13:51:36,183] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.78s, TFLOPs: 2.15, Samples/sec: 0.30, Time/seq 3.39s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 81, Rank: 2, loss = 1.8518264293670654
+nid003877: Epoch: 0, Step: 81, Rank: 3, loss = 1.541542887687683
+nid003877: Epoch: 0, Step: 81, Rank: 0, loss = 1.6057647466659546
+nid003824: Epoch: 0, Step: 81, Rank: 6, loss = 1.595056414604187
+nid003824: Epoch: 0, Step: 81, Rank: 7, loss = 2.0343382358551025
+nid003877: Epoch: 0, Step: 81, Rank: 1, loss = 2.6826765537261963
+nid003824: Epoch: 0, Step: 81, Rank: 4, loss = 2.4198296070098877
+nid003824: Epoch: 0, Step: 81, Rank: 5, loss = 2.0031723976135254
+nid003877: [2024-11-12 13:51:42,975] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.95
+nid003877: [2024-11-12 13:51:42,979] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3206.02 | bwd_microstep: 3494.81 | bwd_inner_microstep: 2863.70 | bwd_allreduce_microstep: 631.02 | step_microstep: 87.63
+nid003877: [2024-11-12 13:51:42,984] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.80s, TFLOPs: 2.14, Samples/sec: 0.29, Time/seq 3.40s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 82, Rank: 2, loss = 2.155848503112793
+nid003824: Epoch: 0, Step: 82, Rank: 6, loss = 1.5379339456558228
+nid003877: Epoch: 0, Step: 82, Rank: 0, loss = 2.2636265754699707
+nid003824: Epoch: 0, Step: 82, Rank: 7, loss = 2.397475481033325
+nid003877: Epoch: 0, Step: 82, Rank: 3, loss = 2.51920485496521
+nid003824: Epoch: 0, Step: 82, Rank: 4, loss = 1.9102413654327393
+nid003877: Epoch: 0, Step: 82, Rank: 1, loss = 1.8639330863952637
+nid003824: Epoch: 0, Step: 82, Rank: 5, loss = 1.524171233177185
+nid003877: [2024-11-12 13:51:49,714] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:51:49,717] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3187.40 | bwd_microstep: 3448.63 | bwd_inner_microstep: 2849.06 | bwd_allreduce_microstep: 599.47 | step_microstep: 88.16
+nid003877: [2024-11-12 13:51:49,723] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.74s, TFLOPs: 2.16, Samples/sec: 0.30, Time/seq 3.37s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 83, Rank: 7, loss = 1.680573582649231
+nid003824: Epoch: 0, Step: 83, Rank: 6, loss = 2.288374900817871
+nid003824: Epoch: 0, Step: 83, Rank: 5, loss = 2.371920108795166
+nid003877: Epoch: 0, Step: 83, Rank: 2, loss = 1.9829730987548828
+nid003824: Epoch: 0, Step: 83, Rank: 4, loss = 2.1863553524017334
+nid003877: Epoch: 0, Step: 83, Rank: 3, loss = 2.5531139373779297
+nid003877: Epoch: 0, Step: 83, Rank: 1, loss = 2.3690898418426514
+nid003877: Epoch: 0, Step: 83, Rank: 0, loss = 1.7434940338134766
+nid003877: [2024-11-12 13:51:56,412] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:51:56,416] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3218.49 | bwd_microstep: 3373.15 | bwd_inner_microstep: 2808.63 | bwd_allreduce_microstep: 564.42 | step_microstep: 91.88
+nid003877: [2024-11-12 13:51:56,421] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.70s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 84, Rank: 6, loss = 1.8058059215545654
+nid003824: Epoch: 0, Step: 84, Rank: 7, loss = 1.8015060424804688
+nid003877: Epoch: 0, Step: 84, Rank: 2, loss = 1.824467658996582
+nid003824: Epoch: 0, Step: 84, Rank: 5, loss = 2.1159801483154297
+nid003877: Epoch: 0, Step: 84, Rank: 3, loss = 2.7102856636047363
+nid003824: Epoch: 0, Step: 84, Rank: 4, loss = 1.8128193616867065
+nid003877: Epoch: 0, Step: 84, Rank: 0, loss = 1.8037375211715698
+nid003877: Epoch: 0, Step: 84, Rank: 1, loss = 1.9481383562088013
+nid003877: [2024-11-12 13:52:03,044] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.86
+nid003877: [2024-11-12 13:52:03,047] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3178.10 | bwd_microstep: 3348.47 | bwd_inner_microstep: 2796.20 | bwd_allreduce_microstep: 552.19 | step_microstep: 89.95
+nid003877: [2024-11-12 13:52:03,053] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.63s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.32s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 85, Rank: 6, loss = 1.8180394172668457
+nid003824: Epoch: 0, Step: 85, Rank: 7, loss = 1.6225059032440186
+nid003824: Epoch: 0, Step: 85, Rank: 4, loss = 1.678355097770691
+nid003877: Epoch: 0, Step: 85, Rank: 2, loss = 2.4364662170410156
+nid003877: Epoch: 0, Step: 85, Rank: 3, loss = 1.8443001508712769
+nid003824: Epoch: 0, Step: 85, Rank: 5, loss = 2.2376699447631836
+nid003877: Epoch: 0, Step: 85, Rank: 0, loss = 1.6919463872909546
+nid003877: Epoch: 0, Step: 85, Rank: 1, loss = 1.7873361110687256
+nid003877: [2024-11-12 13:52:09,888] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.91
+nid003877: [2024-11-12 13:52:09,892] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3286.26 | bwd_microstep: 3454.55 | bwd_inner_microstep: 2876.80 | bwd_allreduce_microstep: 577.67 | step_microstep: 89.49
+nid003877: [2024-11-12 13:52:09,897] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.84s, TFLOPs: 2.13, Samples/sec: 0.29, Time/seq 3.42s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 86, Rank: 6, loss = 1.8589051961898804
+nid003824: Epoch: 0, Step: 86, Rank: 7, loss = 1.5598782300949097
+nid003824: Epoch: 0, Step: 86, Rank: 4, loss = 2.179875373840332
+nid003877: Epoch: 0, Step: 86, Rank: 2, loss = 2.4495368003845215
+nid003824: Epoch: 0, Step: 86, Rank: 5, loss = 1.9796587228775024
+nid003877: Epoch: 0, Step: 86, Rank: 3, loss = 1.7900315523147583
+nid003877: Epoch: 0, Step: 86, Rank: 1, loss = 2.3629250526428223
+nid003877: Epoch: 0, Step: 86, Rank: 0, loss = 2.207656145095825
+nid003877: [2024-11-12 13:52:16,808] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.81
+nid003877: [2024-11-12 13:52:16,812] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3265.18 | bwd_microstep: 3549.38 | bwd_inner_microstep: 2902.98 | bwd_allreduce_microstep: 646.28 | step_microstep: 89.63
+nid003877: [2024-11-12 13:52:16,818] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.92s, TFLOPs: 2.10, Samples/sec: 0.29, Time/seq 3.46s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 87, Rank: 7, loss = 2.0461885929107666
+nid003824: Epoch: 0, Step: 87, Rank: 4, loss = 1.8908737897872925
+nid003877: Epoch: 0, Step: 87, Rank: 0, loss = 1.919630527496338
+nid003824: Epoch: 0, Step: 87, Rank: 5, loss = 2.709326982498169
+nid003877: Epoch: 0, Step: 87, Rank: 3, loss = 2.2416579723358154
+nid003824: Epoch: 0, Step: 87, Rank: 6, loss = 2.057054281234741
+nid003877: Epoch: 0, Step: 87, Rank: 1, loss = 2.0342278480529785
+nid003877: Epoch: 0, Step: 87, Rank: 2, loss = 1.8457139730453491
+nid003877: [2024-11-12 13:52:23,666] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.94
+nid003877: [2024-11-12 13:52:23,670] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3189.93 | bwd_microstep: 3560.98 | bwd_inner_microstep: 2907.36 | bwd_allreduce_microstep: 653.51 | step_microstep: 91.06
+nid003877: [2024-11-12 13:52:23,675] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.86s, TFLOPs: 2.12, Samples/sec: 0.29, Time/seq 3.43s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 88, Rank: 6, loss = 2.155179738998413
+nid003877: Epoch: 0, Step: 88, Rank: 3, loss = 2.1393823623657227
+nid003877: Epoch: 0, Step: 88, Rank: 1, loss = 1.9961047172546387
+nid003877: Epoch: 0, Step: 88, Rank: 0, loss = 1.7429500818252563
+nid003824: Epoch: 0, Step: 88, Rank: 7, loss = 2.121901750564575
+nid003877: Epoch: 0, Step: 88, Rank: 2, loss = 1.6835294961929321
+nid003824: Epoch: 0, Step: 88, Rank: 4, loss = 2.1823368072509766
+nid003824: Epoch: 0, Step: 88, Rank: 5, loss = 1.9335249662399292
+nid003877: [2024-11-12 13:52:30,504] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.80
+nid003877: [2024-11-12 13:52:30,507] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3166.13 | bwd_microstep: 3568.93 | bwd_inner_microstep: 2904.41 | bwd_allreduce_microstep: 664.39 | step_microstep: 89.44
+nid003877: [2024-11-12 13:52:30,513] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.84s, TFLOPs: 2.13, Samples/sec: 0.29, Time/seq 3.42s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 89, Rank: 7, loss = 1.7879005670547485
+nid003877: Epoch: 0, Step: 89, Rank: 2, loss = 2.100274085998535
+nid003824: Epoch: 0, Step: 89, Rank: 6, loss = 2.4839134216308594
+nid003877: Epoch: 0, Step: 89, Rank: 3, loss = 1.9853463172912598
+nid003824: Epoch: 0, Step: 89, Rank: 4, loss = 1.980543613433838
+nid003877: Epoch: 0, Step: 89, Rank: 0, loss = 1.926439881324768
+nid003824: Epoch: 0, Step: 89, Rank: 5, loss = 2.1059253215789795
+nid003877: Epoch: 0, Step: 89, Rank: 1, loss = 1.6255100965499878
+nid003877: [2024-11-12 13:52:37,218] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.83
+nid003877: [2024-11-12 13:52:37,218] [INFO] [logging.py:129:log_dist] [Rank 0] step=90, skipped=21, lr=[9.646535654371208e-06, 9.646535654371208e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:52:37,219] [INFO] [timer.py:264:stop] epoch=0/micro_step=90/global_step=90, RunningAvgSamplesPerSec=2.407959755128894, CurrSamplesPerSec=2.3868294694824934, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:52:37,222] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3172.04 | bwd_microstep: 3435.00 | bwd_inner_microstep: 2805.07 | bwd_allreduce_microstep: 629.80 | step_microstep: 88.58
+nid003877: [2024-11-12 13:52:37,227] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.71s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.36s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 90, Rank: 7, loss = 2.1903417110443115
+nid003824: Epoch: 0, Step: 90, Rank: 6, loss = 2.088855266571045
+nid003824: Epoch: 0, Step: 90, Rank: 5, loss = 2.15730881690979
+nid003877: Epoch: 0, Step: 90, Rank: 3, loss = 2.404519557952881
+nid003824: Epoch: 0, Step: 90, Rank: 4, loss = 2.4734156131744385
+nid003877: Epoch: 0, Step: 90, Rank: 2, loss = 1.7432130575180054
+nid003877: Epoch: 0, Step: 90, Rank: 1, loss = 1.7107102870941162
+nid003877: Epoch: 0, Step: 90, Rank: 0, loss = 2.129580020904541
+nid003877: [2024-11-12 13:52:44,014] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.90
+nid003877: [2024-11-12 13:52:44,019] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3210.12 | bwd_microstep: 3480.18 | bwd_inner_microstep: 2847.45 | bwd_allreduce_microstep: 632.61 | step_microstep: 88.74
+nid003877: [2024-11-12 13:52:44,024] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.80s, TFLOPs: 2.14, Samples/sec: 0.29, Time/seq 3.40s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 91, Rank: 7, loss = 2.8483755588531494
+nid003824: Epoch: 0, Step: 91, Rank: 6, loss = 1.5462143421173096
+nid003824: Epoch: 0, Step: 91, Rank: 5, loss = 1.813797116279602
+nid003877: Epoch: 0, Step: 91, Rank: 3, loss = 2.2349770069122314
+nid003824: Epoch: 0, Step: 91, Rank: 4, loss = 1.7692837715148926
+nid003877: Epoch: 0, Step: 91, Rank: 2, loss = 2.6376047134399414
+nid003877: Epoch: 0, Step: 91, Rank: 1, loss = 2.252763032913208
+nid003877: Epoch: 0, Step: 91, Rank: 0, loss = 2.5597445964813232
+nid003877: [2024-11-12 13:52:50,724] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.86
+nid003877: [2024-11-12 13:52:50,728] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3190.28 | bwd_microstep: 3410.38 | bwd_inner_microstep: 2879.64 | bwd_allreduce_microstep: 530.65 | step_microstep: 90.79
+nid003877: [2024-11-12 13:52:50,733] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.71s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.35s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 92, Rank: 3, loss = 1.7885428667068481
+nid003877: Epoch: 0, Step: 92, Rank: 1, loss = 1.7274558544158936
+nid003824: Epoch: 0, Step: 92, Rank: 7, loss = 1.8416085243225098
+nid003824: Epoch: 0, Step: 92, Rank: 4, loss = 1.9049663543701172
+nid003877: Epoch: 0, Step: 92, Rank: 2, loss = 1.9671940803527832
+nid003877: Epoch: 0, Step: 92, Rank: 0, loss = 1.6522594690322876
+nid003824: Epoch: 0, Step: 92, Rank: 5, loss = 2.116670846939087
+nid003824: Epoch: 0, Step: 92, Rank: 6, loss = 1.8234041929244995
+nid003877: [2024-11-12 13:52:57,379] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.88
+nid003877: [2024-11-12 13:52:57,383] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3128.53 | bwd_microstep: 3423.44 | bwd_inner_microstep: 2805.97 | bwd_allreduce_microstep: 617.34 | step_microstep: 88.40
+nid003877: [2024-11-12 13:52:57,388] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.65s, TFLOPs: 2.19, Samples/sec: 0.30, Time/seq 3.33s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 93, Rank: 3, loss = 1.7942204475402832
+nid003877: Epoch: 0, Step: 93, Rank: 0, loss = 2.0002999305725098
+nid003824: Epoch: 0, Step: 93, Rank: 4, loss = 1.48224675655365
+nid003877: Epoch: 0, Step: 93, Rank: 1, loss = 1.9272615909576416
+nid003824: Epoch: 0, Step: 93, Rank: 7, loss = 2.4161860942840576
+nid003877: Epoch: 0, Step: 93, Rank: 2, loss = 3.103884696960449
+nid003824: Epoch: 0, Step: 93, Rank: 5, loss = 1.728102684020996
+nid003824: Epoch: 0, Step: 93, Rank: 6, loss = 1.7120285034179688
+nid003877: [2024-11-12 13:53:04,047] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.84
+nid003877: [2024-11-12 13:53:04,051] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3183.87 | bwd_microstep: 3381.50 | bwd_inner_microstep: 2793.88 | bwd_allreduce_microstep: 587.53 | step_microstep: 89.13
+nid003877: [2024-11-12 13:53:04,056] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.67s, TFLOPs: 2.18, Samples/sec: 0.30, Time/seq 3.33s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 94, Rank: 4, loss = 1.71714186668396
+nid003824: Epoch: 0, Step: 94, Rank: 7, loss = 2.2124109268188477
+nid003877: Epoch: 0, Step: 94, Rank: 0, loss = 1.8462271690368652
+nid003824: Epoch: 0, Step: 94, Rank: 5, loss = 2.016284227371216
+nid003877: Epoch: 0, Step: 94, Rank: 3, loss = 1.6449060440063477
+nid003824: Epoch: 0, Step: 94, Rank: 6, loss = 1.9335640668869019
+nid003877: Epoch: 0, Step: 94, Rank: 1, loss = 2.3457210063934326
+nid003877: Epoch: 0, Step: 94, Rank: 2, loss = 1.9488394260406494
+nid003877: [2024-11-12 13:53:10,597] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.89
+nid003877: [2024-11-12 13:53:10,601] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3140.61 | bwd_microstep: 3306.76 | bwd_inner_microstep: 2941.19 | bwd_allreduce_microstep: 365.50 | step_microstep: 88.79
+nid003877: [2024-11-12 13:53:10,606] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.55s, TFLOPs: 2.22, Samples/sec: 0.31, Time/seq 3.27s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 95, Rank: 2, loss = 2.2867400646209717
+nid003877: Epoch: 0, Step: 95, Rank: 3, loss = 1.9437049627304077
+nid003877: Epoch: 0, Step: 95, Rank: 0, loss = 1.9451067447662354
+nid003824: Epoch: 0, Step: 95, Rank: 6, loss = 1.9681875705718994
+nid003877: Epoch: 0, Step: 95, Rank: 1, loss = 1.743741750717163
+nid003824: Epoch: 0, Step: 95, Rank: 7, loss = 1.9707235097885132
+nid003824: Epoch: 0, Step: 95, Rank: 4, loss = 2.1107733249664307
+nid003824: Epoch: 0, Step: 95, Rank: 5, loss = 1.643234133720398
+nid003877: [2024-11-12 13:53:17,209] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.84
+nid003877: [2024-11-12 13:53:17,212] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3143.16 | bwd_microstep: 3367.82 | bwd_inner_microstep: 2798.11 | bwd_allreduce_microstep: 569.62 | step_microstep: 87.58
+nid003877: [2024-11-12 13:53:17,217] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.61s, TFLOPs: 2.20, Samples/sec: 0.30, Time/seq 3.30s, Batch Size: 2, Sequence Length: 1024
+nid003877: Epoch: 0, Step: 96, Rank: 3, loss = 2.113110065460205
+nid003824: Epoch: 0, Step: 96, Rank: 4, loss = 1.7405188083648682
+nid003877: Epoch: 0, Step: 96, Rank: 2, loss = 1.666854739189148
+nid003824: Epoch: 0, Step: 96, Rank: 7, loss = 1.7938706874847412
+nid003877: Epoch: 0, Step: 96, Rank: 1, loss = 1.9626870155334473
+nid003824: Epoch: 0, Step: 96, Rank: 5, loss = 1.9313178062438965
+nid003877: Epoch: 0, Step: 96, Rank: 0, loss = 1.9050030708312988
+nid003824: Epoch: 0, Step: 96, Rank: 6, loss = 1.8945029973983765
+nid003877: [2024-11-12 13:53:23,796] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.91
+nid003877: [2024-11-12 13:53:23,800] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3153.37 | bwd_microstep: 3326.78 | bwd_inner_microstep: 2806.35 | bwd_allreduce_microstep: 520.36 | step_microstep: 88.32
+nid003877: [2024-11-12 13:53:23,805] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.59s, TFLOPs: 2.21, Samples/sec: 0.30, Time/seq 3.29s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 97, Rank: 7, loss = 1.8664542436599731
+nid003824: Epoch: 0, Step: 97, Rank: 4, loss = 2.5448243618011475
+nid003824: Epoch: 0, Step: 97, Rank: 5, loss = 2.0948104858398438
+nid003877: Epoch: 0, Step: 97, Rank: 0, loss = 1.7409788370132446
+nid003824: Epoch: 0, Step: 97, Rank: 6, loss = 1.6870735883712769
+nid003877: Epoch: 0, Step: 97, Rank: 3, loss = 1.5816446542739868
+nid003877: Epoch: 0, Step: 97, Rank: 2, loss = 2.4110701084136963
+nid003877: Epoch: 0, Step: 97, Rank: 1, loss = 2.4596002101898193
+nid003877: [2024-11-12 13:53:30,560] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.89
+nid003877: [2024-11-12 13:53:30,564] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3267.46 | bwd_microstep: 3393.67 | bwd_inner_microstep: 2802.58 | bwd_allreduce_microstep: 591.02 | step_microstep: 87.21
+nid003877: [2024-11-12 13:53:30,569] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.76s, TFLOPs: 2.15, Samples/sec: 0.30, Time/seq 3.38s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 98, Rank: 7, loss = 1.9749172925949097
+nid003824: Epoch: 0, Step: 98, Rank: 6, loss = 1.7643884420394897
+nid003824: Epoch: 0, Step: 98, Rank: 4, loss = 1.7204475402832031
+nid003824: Epoch: 0, Step: 98, Rank: 5, loss = 2.2915170192718506
+nid003877: Epoch: 0, Step: 98, Rank: 0, loss = 1.8701908588409424
+nid003877: Epoch: 0, Step: 98, Rank: 3, loss = 2.2767162322998047
+nid003877: Epoch: 0, Step: 98, Rank: 2, loss = 1.6262586116790771
+nid003877: Epoch: 0, Step: 98, Rank: 1, loss = 1.8266270160675049
+nid003877: [2024-11-12 13:53:37,327] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.87
+nid003877: [2024-11-12 13:53:37,331] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3213.60 | bwd_microstep: 3451.56 | bwd_inner_microstep: 2864.36 | bwd_allreduce_microstep: 587.13 | step_microstep: 86.69
+nid003877: [2024-11-12 13:53:37,335] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.76s, TFLOPs: 2.15, Samples/sec: 0.30, Time/seq 3.38s, Batch Size: 2, Sequence Length: 1024
+nid003824: Epoch: 0, Step: 99, Rank: 4, loss = 2.163306474685669
+nid003824: Epoch: 0, Step: 99, Rank: 7, loss = 1.9120763540267944
+nid003824: Epoch: 0, Step: 99, Rank: 5, loss = 2.910360813140869
+nid003877: Epoch: 0, Step: 99, Rank: 0, loss = 1.8121637105941772
+nid003824: Epoch: 0, Step: 99, Rank: 6, loss = 1.689828872680664
+nid003877: Epoch: 0, Step: 99, Rank: 3, loss = 2.206167459487915
+nid003877: Epoch: 0, Step: 99, Rank: 1, loss = 2.0212252140045166
+nid003877: Epoch: 0, Step: 99, Rank: 2, loss = 1.682252287864685
+nid003877: [2024-11-12 13:53:44,045] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | optimizer_step: 42.83
+nid003877: [2024-11-12 13:53:44,045] [INFO] [logging.py:129:log_dist] [Rank 0] step=100, skipped=21, lr=[9.645458900088685e-06, 9.645458900088685e-06], mom=[(0.9, 0.95), (0.9, 0.95)]
+nid003877: [2024-11-12 13:53:44,046] [INFO] [timer.py:264:stop] epoch=0/micro_step=100/global_step=100, RunningAvgSamplesPerSec=2.4069496030621753, CurrSamplesPerSec=2.385184816978803, MemAllocated=16.4GB, MaxMemAllocated=23.32GB
+nid003877: [2024-11-12 13:53:44,049] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd_microstep: 3294.66 | bwd_microstep: 3319.93 | bwd_inner_microstep: 2931.44 | bwd_allreduce_microstep: 388.41 | step_microstep: 90.04
+nid003877: [2024-11-12 13:53:44,054] [INFO] [logging.py:129:log_dist] [Rank 0] time (ms) | fwd: 0.00 | bwd: 0.00 | bwd_inner: 0.00 | bwd_allreduce: 0.00 | step: 0.00
+nid003877: Model Parameters: 8.030 B, Latency: 6.72s, TFLOPs: 2.17, Samples/sec: 0.30, Time/seq 3.36s, Batch Size: 2, Sequence Length: 1024
+nid003877: saving the final model ...
+nid003877: Traceback (most recent call last):
+nid003877:   File "/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/main.py", line 513, in <module>
+nid003877:     main()
+nid003877:   File "/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/training/step1_supervised_finetuning/main.py", line 492, in main
+nid003877:     save_hf_format(model, tokenizer, args)
+nid003877:   File "/pscratch/sd/a/aahmad2/DDL/DeepSpeedExamples/applications/DeepSpeed-Chat/dschat/utils/utils.py", line 134, in save_hf_format
+nid003877:     tokenizer.save_vocabulary(output_dir)
+nid003877:   File "/global/u2/a/aahmad2/DDL/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 2728, in save_vocabulary
+nid003877:     raise NotImplementedError
+nid003877: NotImplementedError
+nid003877: huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+nid003877: To disable this warning, you can either:
+nid003877: 	- Avoid using `tokenizers` before the fork if possible
+nid003877: 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+nid003877: huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+nid003877: To disable this warning, you can either:
+nid003877: 	- Avoid using `tokenizers` before the fork if possible
+nid003877: 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+nid003877: Connection to nid003877 closed by remote host.
+pdsh@nid003824: nid003877: ssh exited with exit code 255
+nid003824: Connection to nid003824 closed by remote host.
+pdsh@nid003824: nid003824: ssh exited with exit code 255
