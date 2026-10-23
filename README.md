@@ -1,60 +1,38 @@
-# Distributed Llama 3.1 8B Fine Tuning on an HPC Cluster
+# Distributed Llama 3.1 8B Fine Tuning with DeepSpeed
 
-This project demonstrates distributed large language model training using **DeepSpeed**, **SLURM**, and multi node GPU computing.
+Multi node supervised fine tuning of **Llama 3.1 8B** using **DeepSpeed ZeRO Stage 3** and **SLURM** across **8 GPUs on 2 HPC compute nodes**.
 
-I configured and executed supervised fine tuning of **Llama 3.1 8B** across **8 GPUs on 2 compute nodes**, using DeepSpeed ZeRO Stage 3 to manage model memory and distributed execution.
+## Configuration
 
-## Why This Project
-
-Training large language models introduces several practical engineering challenges:
-
-- distributing computation across multiple GPUs and nodes
-- coordinating jobs through an HPC scheduler
-- managing model memory efficiently
-- configuring reproducible training runs
-- tracking convergence and diagnosing failures in distributed environments
-
-This project focused on building and running that workflow end to end.
-
-## HPC and Distributed Training Setup
-
-| Component | Configuration |
+| Parameter | Value |
 | --- | --- |
 | Base model | Llama 3.1 8B |
 | Dataset | Dahoas/rm-static |
-| Framework | DeepSpeed Chat |
-| Compute nodes | 2 |
-| GPUs per node | 4 |
-| Total GPUs | 8 |
-| Parallel training | DeepSpeed |
-| ZeRO optimization | Stage 3 |
+| Nodes | 2 |
+| GPUs | 8 total |
+| ZeRO stage | 3 |
 | Batch size | 2 per GPU |
-| Maximum sequence length | 1024 |
+| Sequence length | 1024 |
 | Learning rate | 9.65e-6 |
 | Scheduler | Cosine |
-| Gradient accumulation | 1 |
 | Gradient checkpointing | Enabled |
-| Training interval | 100 steps |
-| Seed | 1234 |
+| Training steps | 100 |
 
-## Workflow
+## Distributed Training
 
-The training job was submitted through:
+Training was launched through:
 
 `llama3_1_8b_aa3056.slurm`
 
-The SLURM script coordinated the two compute nodes and launched the DeepSpeed distributed training process through the DeepSpeed Chat supervised fine tuning entry point.
+The SLURM job allocated resources across two compute nodes and launched the DeepSpeed Chat supervised fine tuning workflow.
 
-A simplified version of the launch command is:
-
-```bash id="k5x2tm"
+```bash
 deepspeed --hostfile hostfile main.py \
   --sft_only_data_path Dahoas/rm-static \
   --model_name_or_path Llama-3.1-8B \
   --per_device_train_batch_size 2 \
   --max_seq_len 1024 \
   --learning_rate 9.65e-6 \
-  --num_train_epochs 1 \
   --gradient_accumulation_steps 1 \
   --lr_scheduler_type cosine \
   --seed 1234 \
@@ -63,90 +41,40 @@ deepspeed --hostfile hostfile main.py \
   --deepspeed
 ```
 
-The `main.py` entry point belongs to the DeepSpeed Chat implementation used for the training workflow rather than a separate training script created in this repository.
+`main.py` is the DeepSpeed Chat training entry point used in the workflow.
 
-## Training Convergence
+## Training Results
 
-The distributed run reached the required **100 training steps**.
+The run completed **100 training steps**.
 
-Average training loss decreased from approximately **5.3** at the beginning of the run to approximately **2.0** near step 100.
+Average training loss decreased from approximately **5.3** to approximately **2.0**.
 
 ![Average loss over training steps](figures/average_loss_vs_steps.png)
-
-The largest reduction occurred during the early and middle stages of training, followed by stabilization near an average loss of 2.
 
 The corresponding aggregated loss decreased from approximately **43** to approximately **16**.
 
 [View aggregated loss plot](figures/aggregate_loss_vs_steps.png)
 
-## What I Worked On
+## What I Did
 
-My contribution to the project included:
+- configured a multi node SLURM training job
+- launched distributed training across 8 GPUs
+- used DeepSpeed ZeRO Stage 3 and gradient checkpointing
+- configured training hyperparameters
+- monitored distributed training behavior
+- extracted and visualized training loss
+- diagnosed a tokenizer serialization failure after training
 
-- configuring the multi node SLURM training job
-- launching DeepSpeed across 8 GPUs
-- working with ZeRO Stage 3 distributed optimization
-- configuring training hyperparameters and gradient checkpointing
-- monitoring distributed training behavior
-- extracting and visualizing training loss
-- diagnosing the final checkpoint serialization error
-- documenting the workflow for reproducibility
+## Repository Contents
 
-## Repository Structure
-
-```text id="u6jzq1"
-.
-├── README.md
-├── llama3_1_8b_aa3056.slurm
-├── training.log
-├── main_ckpt.py
-├── utils.py
-├── DeepSpeed_Dahos-rm env.txt
-└── figures/
-    ├── average_loss_vs_steps.png
-    └── aggregate_loss_vs_steps.png
-```
-
-### `llama3_1_8b_aa3056.slurm`
-
-SLURM configuration used to allocate the HPC resources and launch distributed DeepSpeed training.
-
-### `training.log`
-
-Console output from the distributed run, including reported training loss and runtime diagnostics.
-
-### `main_ckpt.py`
-
-Modified DeepSpeed Chat training code used for checkpoint related functionality.
-
-### `utils.py`
-
-Supporting utility modifications used in the training workflow.
-
-### `figures/`
-
-Training convergence plots generated from the recorded loss values.
-
-## Engineering Takeaways
-
-This project provided hands on experience with the practical infrastructure behind large scale AI training rather than only model development.
-
-Key areas included:
-
-- multi node GPU orchestration
-- HPC job scheduling
-- distributed optimization
-- memory efficient training
-- experiment monitoring
-- reproducible execution
-- debugging distributed workflows
-
-These same workflow principles are applicable to other large scale scientific computing and machine learning workloads where model execution must be distributed across shared HPC resources.
+- `llama3_1_8b_aa3056.slurm` — distributed training launcher
+- `training.log` — training output and diagnostics
+- `main_ckpt.py` — checkpoint related training code used in the workflow
+- `utils.py` — supporting utility modifications
+- `figures/` — training convergence plots
 
 ## Known Issue
 
-The training process reached all 100 required steps.
+The training run reached all 100 steps. During final tokenizer saving, the workflow encountered a `NotImplementedError` associated with `save_vocabulary()`.
 
-During final tokenizer saving, the workflow encountered a `NotImplementedError` associated with `save_vocabulary()`.
-
-The distributed training and loss reporting completed before this serialization issue.
+Training and loss reporting completed before this serialization issue.
