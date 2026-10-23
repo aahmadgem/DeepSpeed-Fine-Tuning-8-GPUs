@@ -1,55 +1,53 @@
-# Distributed Fine Tuning of Llama 3.1 8B with DeepSpeed
+# Distributed Llama 3.1 8B Fine Tuning on an HPC Cluster
 
-Course project implementing distributed supervised fine tuning of **Llama 3.1 8B** using **DeepSpeed Chat** on an HPC cluster.
+This project demonstrates distributed large language model training using **DeepSpeed**, **SLURM**, and multi node GPU computing.
 
-## Project Overview
+I configured and executed supervised fine tuning of **Llama 3.1 8B** across **8 GPUs on 2 compute nodes**, using DeepSpeed ZeRO Stage 3 to manage model memory and distributed execution.
 
-The goal of this project was to configure and run large language model fine tuning across multiple GPUs and compute nodes using DeepSpeed.
+## Why This Project
 
-The training workflow used:
+Training large language models introduces several practical engineering challenges:
 
-- **2 compute nodes**
-- **4 GPUs per node**
-- **8 GPUs total**
-- **DeepSpeed ZeRO Stage 3**
-- **100 training steps**
-- **Gradient checkpointing**
-- **TensorBoard logging**
+- distributing computation across multiple GPUs and nodes
+- coordinating jobs through an HPC scheduler
+- managing model memory efficiently
+- configuring reproducible training runs
+- tracking convergence and diagnosing failures in distributed environments
 
-The training used the `Dahoas/rm-static` dataset with Llama 3.1 8B as the base model.
+This project focused on building and running that workflow end to end.
 
-## Training Configuration
+## HPC and Distributed Training Setup
 
-| Parameter | Value |
+| Component | Configuration |
 | --- | --- |
 | Base model | Llama 3.1 8B |
 | Dataset | Dahoas/rm-static |
 | Framework | DeepSpeed Chat |
-| Training type | Supervised Fine Tuning |
 | Compute nodes | 2 |
-| GPUs | 8 total |
 | GPUs per node | 4 |
-| ZeRO stage | 3 |
-| Training steps | 100 |
+| Total GPUs | 8 |
+| Parallel training | DeepSpeed |
+| ZeRO optimization | Stage 3 |
 | Batch size | 2 per GPU |
 | Maximum sequence length | 1024 |
 | Learning rate | 9.65e-6 |
 | Scheduler | Cosine |
 | Gradient accumulation | 1 |
 | Gradient checkpointing | Enabled |
+| Training interval | 100 steps |
 | Seed | 1234 |
 
-## Distributed Training Workflow
+## Workflow
 
-Training was submitted through:
+The training job was submitted through:
 
 `llama3_1_8b_aa3056.slurm`
 
-The SLURM job launched the DeepSpeed Chat supervised fine tuning entry point across the two compute nodes.
+The SLURM script coordinated the two compute nodes and launched the DeepSpeed distributed training process through the DeepSpeed Chat supervised fine tuning entry point.
 
-A simplified version of the training command is:
+A simplified version of the launch command is:
 
-```bash
+```bash id="k5x2tm"
 deepspeed --hostfile hostfile main.py \
   --sft_only_data_path Dahoas/rm-static \
   --model_name_or_path Llama-3.1-8B \
@@ -65,61 +63,90 @@ deepspeed --hostfile hostfile main.py \
   --deepspeed
 ```
 
-`main.py` is part of the DeepSpeed Chat implementation used for the assignment rather than a separate `train.py` included in this repository.
+The `main.py` entry point belongs to the DeepSpeed Chat implementation used for the training workflow rather than a separate training script created in this repository.
 
-## Training Results
+## Training Convergence
 
-The distributed run completed **100 training steps**.
+The distributed run reached the required **100 training steps**.
 
-Average loss decreased from approximately **5.3** at the beginning of training to approximately **2.0** near step 100.
+Average training loss decreased from approximately **5.3** at the beginning of the run to approximately **2.0** near step 100.
 
 ![Average loss over training steps](figures/average_loss_vs_steps.png)
 
-Most of the loss reduction occurred between approximately steps 20 and 45, after which training stabilized near an average loss of 2.
+The largest reduction occurred during the early and middle stages of training, followed by stabilization near an average loss of 2.
 
 The corresponding aggregated loss decreased from approximately **43** to approximately **16**.
 
 [View aggregated loss plot](figures/aggregate_loss_vs_steps.png)
 
-## Repository Contents
+## What I Worked On
+
+My contribution to the project included:
+
+- configuring the multi node SLURM training job
+- launching DeepSpeed across 8 GPUs
+- working with ZeRO Stage 3 distributed optimization
+- configuring training hyperparameters and gradient checkpointing
+- monitoring distributed training behavior
+- extracting and visualizing training loss
+- diagnosing the final checkpoint serialization error
+- documenting the workflow for reproducibility
+
+## Repository Structure
+
+```text id="u6jzq1"
+.
+├── README.md
+├── llama3_1_8b_aa3056.slurm
+├── training.log
+├── main_ckpt.py
+├── utils.py
+├── DeepSpeed_Dahos-rm env.txt
+└── figures/
+    ├── average_loss_vs_steps.png
+    └── aggregate_loss_vs_steps.png
+```
 
 ### `llama3_1_8b_aa3056.slurm`
 
-SLURM job configuration used to launch the distributed DeepSpeed training run across two compute nodes.
+SLURM configuration used to allocate the HPC resources and launch distributed DeepSpeed training.
 
 ### `training.log`
 
-Console output from the distributed training run, including the reported training loss over the 100 steps.
+Console output from the distributed run, including reported training loss and runtime diagnostics.
 
 ### `main_ckpt.py`
 
-Modified DeepSpeed Chat training code used in the course assignment for checkpoint related functionality.
+Modified DeepSpeed Chat training code used for checkpoint related functionality.
 
 ### `utils.py`
 
-Supporting utility modifications used with the assignment.
+Supporting utility modifications used in the training workflow.
 
 ### `figures/`
 
-Loss curves generated from the training output.
+Training convergence plots generated from the recorded loss values.
 
-## Training Outcome
+## Engineering Takeaways
 
-This project demonstrates:
+This project provided hands on experience with the practical infrastructure behind large scale AI training rather than only model development.
 
-- distributed LLM training across multiple compute nodes and GPUs
-- DeepSpeed ZeRO Stage 3 configuration
-- SLURM based HPC job execution
-- gradient checkpointing for memory efficient training
-- training metric extraction and convergence analysis
-- practical debugging of a distributed training workflow
+Key areas included:
 
-The loss curve shows substantial convergence over the required 100 training steps.
+- multi node GPU orchestration
+- HPC job scheduling
+- distributed optimization
+- memory efficient training
+- experiment monitoring
+- reproducible execution
+- debugging distributed workflows
 
-## Note on Model Saving
+These same workflow principles are applicable to other large scale scientific computing and machine learning workloads where model execution must be distributed across shared HPC resources.
+
+## Known Issue
 
 The training process reached all 100 required steps.
 
-During the final tokenizer saving stage, the run encountered a `NotImplementedError` associated with `save_vocabulary()`.
+During final tokenizer saving, the workflow encountered a `NotImplementedError` associated with `save_vocabulary()`.
 
 The distributed training and loss reporting completed before this serialization issue.
